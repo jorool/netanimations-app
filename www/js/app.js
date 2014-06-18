@@ -1,4 +1,4 @@
-angular.module('netanimations', ['ionic', 'netanimations.controllers'])
+angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalprecht.translate'])
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -11,7 +11,7 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers'])
         });
     })
 
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $translateProvider) {
         $stateProvider
 
             .state('app', {
@@ -66,7 +66,56 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers'])
                         controller: 'AboutCtrl'
                     }
                 }
+            })
+
+            .state('app.config', {
+                url: "/config",
+                views: {
+                    'menuContent' :{
+                        templateUrl: "templates/config.html",
+                        controller: 'ConfigCtrl'
+                    }
+                }
+            })
+
+            .state('app.animations', {
+                url: "/animations",
+                views: {
+                    'menuContent' :{
+                        templateUrl: "templates/animations.html",
+                        controller: 'AnimationsCtrl'
+                    }
+                }
             });
 
-        $urlRouterProvider.otherwise('/app/playlists');
+        $urlRouterProvider.otherwise('/app/animations');
+
+        $translateProvider.translations('en', {
+            LANGUAGE: 'Language',
+            PORTUGUESE: 'Portuguese',
+            ENGLISH: 'English',
+            CONFIGS: 'Config',
+            ANIMATIONS: 'Animations',
+            CONTACT: 'Contact',
+            ABOUT: 'About',
+
+            THREEWAY_HANDSHAKE: 'Three-way Handshake',
+            THREEWAY_HANDSHAKE_DESC: 'TCP connection establishment process'
+        });
+
+        $translateProvider.translations('pt-br', {
+            LANGUAGE: 'Idioma',
+            PORTUGUESE: 'Português',
+            ENGLISH: 'Inglês',
+            CONFIGS: 'Configurações',
+            ANIMATIONS: 'Animações',
+            CONTACT: 'Contato',
+            ABOUT: 'Sobre',
+
+            THREEWAY_HANDSHAKE: 'Three-way Handshake',
+            THREEWAY_HANDSHAKE_DESC: 'Processo de estabelecimento de conexão TCP'
+        });
+
+        $translateProvider.preferredLanguage('pt-br');
+
     });

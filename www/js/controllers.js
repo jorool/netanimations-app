@@ -14,6 +14,18 @@ angular.module('netanimations.controllers', [])
         ];
     })
 
+    .controller('AnimationsCtrl', function($scope, $stateParams) {
+
+    })
+
+    .controller('ConfigCtrl', function($scope, $stateParams, $translate) {
+
+        $scope.changeLanguage = function (key) {
+            $translate.use(key);
+        };
+
+    })
+
     .controller('PlaylistCtrl', function($scope, $stateParams) {
 
     })
