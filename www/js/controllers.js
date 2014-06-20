@@ -30,6 +30,18 @@ angular.module('netanimations.controllers', [])
 
     })
 
+    .controller('ContactCtrl', function($scope) {
+
+    })
+
+    .controller('ThreeWayHandshakeCtrl', function($scope) {
+
+        $scope.teste = function() {
+            $("#box").animate({left:'250px', width: '500px'});
+            //$scope.$apply();
+        };
+    })
+
     .controller('AboutCtrl', function($scope, $stateParams) {
 
     });

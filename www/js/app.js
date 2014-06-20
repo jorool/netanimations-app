@@ -21,23 +21,6 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
                 controller: 'AppCtrl'
             })
 
-            .state('app.search', {
-                url: "/search",
-                views: {
-                    'menuContent' :{
-                        templateUrl: "templates/search.html"
-                    }
-                }
-            })
-
-            .state('app.browse', {
-                url: "/browse",
-                views: {
-                    'menuContent' :{
-                        templateUrl: "templates/browse.html"
-                    }
-                }
-            })
             .state('app.playlists', {
                 url: "/playlists",
                 views: {
@@ -78,6 +61,16 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
                 }
             })
 
+            .state('app.contact', {
+                url: "/contact",
+                views: {
+                    'menuContent' :{
+                        templateUrl: "templates/contact.html",
+                        controller: 'ContactCtrl'
+                    }
+                }
+            })
+
             .state('app.animations', {
                 url: "/animations",
                 views: {
@@ -86,7 +79,18 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
                         controller: 'AnimationsCtrl'
                     }
                 }
-            });
+            })
+
+            .state('app.three-way-handshake', {
+                url: "/three-way-handshake",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/three-way-handshake.html",
+                        controller: 'ThreeWayHandshakeCtrl'
+                    }
+                }
+            })
+        ;
 
         $urlRouterProvider.otherwise('/app/animations');
 
