@@ -102,9 +102,11 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             ANIMATIONS: 'Animations',
             CONTACT: 'Contact',
             ABOUT: 'About',
+            CONTINUE: 'Continue',
 
             THREEWAY_HANDSHAKE: 'Three-way Handshake',
-            THREEWAY_HANDSHAKE_DESC: 'TCP connection establishment process'
+            THREEWAY_HANDSHAKE_DESC: 'TCP connection establishment process',
+            THREEWAY_HANDSHAKE_PRESENTATION: 'Three-way Handshake is a process blablabla - um processo de acordo entre as duas partes que desejam estabelecer uma comunicação que consiste em três etapas.'
         });
 
         $translateProvider.translations('pt-br', {
@@ -115,9 +117,11 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             ANIMATIONS: 'Animações',
             CONTACT: 'Contato',
             ABOUT: 'Sobre',
+            CONTINUE: 'Continuar',
 
             THREEWAY_HANDSHAKE: 'Three-way Handshake',
-            THREEWAY_HANDSHAKE_DESC: 'Processo de estabelecimento de conexão TCP'
+            THREEWAY_HANDSHAKE_DESC: 'Processo de estabelecimento de conexão TCP',
+            THREEWAY_HANDSHAKE_PRESENTATION: 'O Three-way Handshake é um processo de acordo entre as duas partes que desejam estabelecer uma comunicação que consiste em três etapas.'
         });
 
         $translateProvider.preferredLanguage('pt-br');

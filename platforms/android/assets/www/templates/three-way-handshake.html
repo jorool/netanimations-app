@@ -3,9 +3,27 @@
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
     <ion-content class="has-header">
-        ANIMAÇAO AQUI
-        <button ng-click="teste()">teste</button>
-        <div id="box" style="background:#98bf21;height:100px;width:100px;position:absolute;">
+
+        <div class="card" ng-show="showPresentation">
+            <div class="item item-divider" translate>
+                THREEWAY_HANDSHAKE
+            </div>
+            <div class="item item-text-wrap" translate>
+                THREEWAY_HANDSHAKE_PRESENTATION
+            </div>
+            <div class="item item-divider">
+                <button class="button button-full button-positive" ng-click="start()" translate>
+                    CONTINUE
+                </button>
+            </div>
         </div>
+
+        <div ng-hide="showPresentation">
+            <button ng-click="teste()">teste</button>
+            <img id="pacote" src="./img/icons/pacote.png" ng-hide="true">
+            <img id="server" src="./img/icons/server-64.png">
+            <img id="host" src="./img/icons/host-64.png" style="padding-left: 200px">
+        </div>
+
     </ion-content>
 </ion-view>

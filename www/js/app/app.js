@@ -102,9 +102,11 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             ANIMATIONS: 'Animations',
             CONTACT: 'Contact',
             ABOUT: 'About',
+            CONTINUE: 'Continue',
 
             THREEWAY_HANDSHAKE: 'Three-way Handshake',
-            THREEWAY_HANDSHAKE_DESC: 'TCP connection establishment process'
+            THREEWAY_HANDSHAKE_DESC: 'TCP connection establishment process',
+            THREEWAY_HANDSHAKE_PRESENTATION: 'Three-way Handshake is a process blablabla - um processo de acordo entre as duas partes que desejam estabelecer uma comunicação que consiste em três etapas.'
         });
 
         $translateProvider.translations('pt-br', {
@@ -115,9 +117,21 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             ANIMATIONS: 'Animações',
             CONTACT: 'Contato',
             ABOUT: 'Sobre',
+            CONTINUE: 'Continuar',
+
+            STEP_1: 'Primeiro passo',
+            STEP_2: 'Segundo passo',
+            STEP_3: 'Terceiro passo',
+            STEP_4: 'Quarto passo',
+            STEP_5: 'Quinto passo',
 
             THREEWAY_HANDSHAKE: 'Three-way Handshake',
-            THREEWAY_HANDSHAKE_DESC: 'Processo de estabelecimento de conexão TCP'
+            THREEWAY_HANDSHAKE_DESC: 'Processo de estabelecimento de conexão TCP',
+            THREEWAY_HANDSHAKE_PRESENTATION: 'O Three-way Handshake é um processo de acordo entre as duas partes que desejam estabelecer uma comunicação que consiste em três etapas.',
+            TWHS_STEP_1: 'O cliente envia um pacote (requisição) com as flags SYN = 1 e ACK = 0',
+            TWHS_STEP_2: 'O servidor responde com um pacote contendo as flags SYN = 1 e ACK = 1, representando que a conexão foi aceita e estabelecida',
+            TWHS_STEP_3: 'O cliente responde com um pacote com a flag ACK = 1',
+            TWHS_STEP_4: 'Após o término dos 3 passos, o Three-way Handshake está completo e as duas partes podem trocar dados entre si.'
         });
 
         $translateProvider.preferredLanguage('pt-br');
