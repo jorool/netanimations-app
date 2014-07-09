@@ -3,17 +3,6 @@ angular.module('netanimations.controllers', [])
     .controller('AppCtrl', function($scope) {
     })
 
-    .controller('PlaylistsCtrl', function($scope) {
-        $scope.playlists = [
-            { title: 'Reggae', id: 1 },
-            { title: 'Chill', id: 2 },
-            { title: 'Dubstep', id: 3 },
-            { title: 'Indie', id: 4 },
-            { title: 'Rap', id: 5 },
-            { title: 'Cowbell', id: 6 }
-        ];
-    })
-
     .controller('AnimationsCtrl', function($scope, $stateParams) {
 
     })
@@ -23,10 +12,6 @@ angular.module('netanimations.controllers', [])
         $scope.changeLanguage = function (key) {
             $translate.use(key);
         };
-
-    })
-
-    .controller('PlaylistCtrl', function($scope, $stateParams) {
 
     })
 
@@ -40,79 +25,133 @@ angular.module('netanimations.controllers', [])
 
         $scope.start = function() {
             $scope.showPresentation = false;
+            animation();
         };
 
-        $scope.teste = function() {
+        function animation() {
 
-            //create a TimelineLite instance
             var tl = new TimelineLite();
 
-
-            tl.to("pacote", 1, {className:"ng-show"});
-            tl.to("pacote", 2, {top: "1000px"});
+            //initial position
+            tl.to("pacote", 0, {x:230, y:30});
+            tl.delay(1);
 
             tl.call(function() {
                 tl.pause();
-
                 $ionicPopup.alert({
-                    title: 'Don\'t eat that!',
-                    template: 'It might taste good'
+                    title: "Passo 1",
+                    template: "{{'TWHS_STEP_1' | translate}}"
                 }).then(function(result) {
                     tl.resume();
                 });
-
             });
 
-
-            tl.to("pacote", 2, {width:"50%"});
-
-//add another sequenced tween (by default, tweens are added to the end of the timeline which makes sequencing simple)
-            tl.to("pacote", 1, {height:"300px", ease:Elastic.easeOut});
-
-//offset the next tween by 0.75 seconds so there's a gap between the end of the previous tween and this new one
-            tl.to("pacote", 1, {opacity:0.5}, "+=0.75");
-
-//overlap the next tween with the previous one by 0.5 seconds (notice the negative offset at the end)
-            tl.to("pacote", 1, {backgroundColor:"#FF0000"}, "-=0.5");
-
-//animate 3 elements (e1, e2, and e3) to a rotation of 60 degrees, and stagger their start times by 0.2 seconds
-
-
-//then call myFunction()
-
-
-            //tl.staggerTo(["pacote"], 1, {rotation:60}, 0.2);
-
+            //zoom +
+            tl.to("pacote", 2, {width:350, x:70, className:"ng-show"});
 
             tl.call(function() {
+                tl.pause();
                 $ionicPopup.alert({
-                    title: '=)',
-                    template: 'acabou'
+                    title: "Primeiro pacote",
+                    template: "Porta origem: TCP 1026<br/>"+
+                        "Porta destino: TCP 524<br/>"+
+                        "Nº de sequência: SEQ=0<br/>"+
+                        "Tam. da janela: WIN=8192bytes<br/>"+
+                        "Flag SYN: SYN=1<br/>"+
+                        "Flag ACK: ACK=0<br/>"
+                }).then(function(result) {
+                    tl.resume();
                 });
             });
 
+            //rotate and zoom -
+            tl.to("pacote", 1, {width:50, x:180, rotation:-90});
+            //send
+            tl.to("pacote", 4, {y:600});
+            //hide
+            tl.to("pacote", 0, {className:"ng-hide"});
 
-//now we can control the entire sequence with the standard methods like these:
-            //tl.pause();
-            //tl.resume();
-            //tl.restart();
-            tl.play();
-            //tl.reverse();
+            tl.call(function() {
+                tl.pause();
+                $ionicPopup.alert({
+                    title: "Passo 2",
+                    template: "{{'TWHS_STEP_2' | translate}}"
+                }).then(function(result) {
+                    tl.resume();
+                });
+            });
 
-//jump to exactly 2.5 seconds into the animation
-            //tl.seek(2.5);
+            //show
+            tl.to("pacote", 0, {className:"ng-show", rotation:0});
+            //rotante and zoom +
+            tl.to("pacote", 1, {width:350, x:70});
 
-//slow down playback to 10% of the normal speed
-            //tl.timeScale(0.1);
+            tl.call(function() {
+                tl.pause();
+                $ionicPopup.alert({
+                    title: "Segundo pacote",
+                    template: "Porta origem: TCP 524<br/>"+
+                        "Porta destino: TCP 1026<br/>"+
+                        "Nº de sequência: SEQ=0<br/>"+
+                        "Tam. da janela: WIN=32768bytes<br/>"+
+                        "Flag SYN: SYN=1<br/>"+
+                        "Flag ACK: ACK=1<br/>"
+                }).then(function(result) {
+                    tl.resume();
+                });
+            });
 
+            //rotate and zoom -
+            tl.to("pacote", 1, {width:50, x:180, rotation:+90});
+            //send
+            tl.to("pacote", 3, {y:30});
+            //hide
+            tl.to("pacote", 0, {className:"ng-hide"});
 
+            tl.call(function() {
+                tl.pause();
+                $ionicPopup.alert({
+                    title: "Passo 3",
+                    template: "{{'TWHS_STEP_3' | translate}}"
+                }).then(function(result) {
+                    tl.resume();
+                });
+            });
 
-            //TweenLite.to("pacote", 0, {className:"ng-show", width:"50px"});
-            //TweenLite.to("pacote", 1, {width:100, ease:Linear.easeNone});
+            //show
+            tl.to("pacote", 0, {className:"ng-show", rotation:0});
+            //zoom +
+            tl.to("pacote", 1, {width:350, x:70});
 
+            tl.call(function() {
+                tl.pause();
+                $ionicPopup.alert({
+                    title: "Terceiro pacote",
+                    template: "Porta origem: TCP 524<br/>"+
+                        "Porta destino: TCP 1026<br/>"+
+                        "Nº de sequência: SEQ=0<br/>"+
+                        "Tam. da janela: WIN=32768bytes<br/>"+
+                        "Flag SYN: SYN=0<br/>"+
+                        "Flag ACK: ACK=1<br/>"
+                }).then(function(result) {
+                    tl.resume();
+                });
+            });
 
-            //TweenLite.to("server", 0.5, {width:100});
+            //rotate and zoom -
+            tl.to("pacote", 1, {width:50, x:180, rotation:-90});
+            //send
+            tl.to("pacote", 3, {y:600});
 
+            tl.call(function() {
+                $ionicPopup.alert({
+                    title: 'Fim',
+                    template: "{{'TWHS_END' | translate}}"
+                });
+            });
+
+            //hide
+            tl.to("pacote", 1, {className:"ng-hide"});
 
         };
     })

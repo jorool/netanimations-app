@@ -3,17 +3,6 @@ angular.module('netanimations.controllers', [])
     .controller('AppCtrl', function($scope) {
     })
 
-    .controller('PlaylistsCtrl', function($scope) {
-        $scope.playlists = [
-            { title: 'Reggae', id: 1 },
-            { title: 'Chill', id: 2 },
-            { title: 'Dubstep', id: 3 },
-            { title: 'Indie', id: 4 },
-            { title: 'Rap', id: 5 },
-            { title: 'Cowbell', id: 6 }
-        ];
-    })
-
     .controller('AnimationsCtrl', function($scope, $stateParams) {
 
     })
@@ -26,10 +15,6 @@ angular.module('netanimations.controllers', [])
 
     })
 
-    .controller('PlaylistCtrl', function($scope, $stateParams) {
-
-    })
-
     .controller('ContactCtrl', function($scope) {
 
     })
@@ -38,51 +23,140 @@ angular.module('netanimations.controllers', [])
 
         $scope.showPresentation = true;
 
+        var tl = new TimelineLite();
+
         $scope.start = function() {
             $scope.showPresentation = false;
             animation();
         };
 
+        $scope.restart = function () {
+            tl.stop();
+            $scope.showPresentation = true;
+        };
+
         function animation() {
 
-            var tl = new TimelineLite();
-
-            tl.delay(2);
+            //initial position
+            tl.to("pacote", 0, {x:230, y:30, width:"50px"});
+            tl.delay(1);
 
             tl.call(function() {
                 tl.pause();
                 $ionicPopup.alert({
-                    title: "{{'STEP_1' | translate}}",
+                    title: "Passo 1",
                     template: "{{'TWHS_STEP_1' | translate}}"
                 }).then(function(result) {
                     tl.resume();
                 });
             });
 
-            tl.to("pacote", 1, {className:"ng-show"});
-            tl.to("pacote", 2, {top: "1000px"});
+            //zoom +
+            tl.to("pacote", 2, {width:350, x:70, className:"ng-show"});
 
             tl.call(function() {
                 tl.pause();
                 $ionicPopup.alert({
-                    title: 'Don\'t eat that!',
-                    template: 'It might taste good'
+                    title: "Primeiro pacote",
+                    template: "Porta origem: TCP 1026<br/>"+
+                        "Porta destino: TCP 524<br/>"+
+                        "Nº de sequência: SEQ=0<br/>"+
+                        "Tam. da janela: WIN=8192bytes<br/>"+
+                        "Flag SYN: SYN=1<br/>"+
+                        "Flag ACK: ACK=0<br/>"
                 }).then(function(result) {
                     tl.resume();
                 });
             });
 
-            tl.to("pacote", 2, {width:"50%"});
-            tl.to("pacote", 1, {height:"300px", ease:Elastic.easeOut});
-            tl.to("pacote", 1, {opacity:0.5}, "+=0.75");
-            tl.to("pacote", 1, {backgroundColor:"#FF0000"}, "-=0.5");
+            //rotate and zoom -
+            tl.to("pacote", 1, {width:50, x:180, rotation:-90});
+            //send
+            tl.to("pacote", 4, {y:600});
+            //hide
+            tl.to("pacote", 0, {className:"ng-hide"});
+
+            tl.call(function() {
+                tl.pause();
+                $ionicPopup.alert({
+                    title: "Passo 2",
+                    template: "{{'TWHS_STEP_2' | translate}}"
+                }).then(function(result) {
+                    tl.resume();
+                });
+            });
+
+            //show
+            tl.to("pacote", 0, {className:"ng-show", rotation:0});
+            //rotante and zoom +
+            tl.to("pacote", 1, {width:350, x:70});
+
+            tl.call(function() {
+                tl.pause();
+                $ionicPopup.alert({
+                    title: "Segundo pacote",
+                    template: "Porta origem: TCP 524<br/>"+
+                        "Porta destino: TCP 1026<br/>"+
+                        "Nº de sequência: SEQ=0<br/>"+
+                        "Tam. da janela: WIN=32768bytes<br/>"+
+                        "Flag SYN: SYN=1<br/>"+
+                        "Flag ACK: ACK=1<br/>"
+                }).then(function(result) {
+                    tl.resume();
+                });
+            });
+
+            //rotate and zoom -
+            tl.to("pacote", 1, {width:50, x:180, rotation:+90});
+            //send
+            tl.to("pacote", 4, {y:30});
+            //hide
+            tl.to("pacote", 0, {className:"ng-hide"});
+
+            tl.call(function() {
+                tl.pause();
+                $ionicPopup.alert({
+                    title: "Passo 3",
+                    template: "{{'TWHS_STEP_3' | translate}}"
+                }).then(function(result) {
+                    tl.resume();
+                });
+            });
+
+            //show
+            tl.to("pacote", 0, {className:"ng-show", rotation:0});
+            //zoom +
+            tl.to("pacote", 1, {width:350, x:70});
+
+            tl.call(function() {
+                tl.pause();
+                $ionicPopup.alert({
+                    title: "Terceiro pacote",
+                    template: "Porta origem: TCP 524<br/>"+
+                        "Porta destino: TCP 1026<br/>"+
+                        "Nº de sequência: SEQ=0<br/>"+
+                        "Tam. da janela: WIN=32768bytes<br/>"+
+                        "Flag SYN: SYN=0<br/>"+
+                        "Flag ACK: ACK=1<br/>"
+                }).then(function(result) {
+                    tl.resume();
+                });
+            });
+
+            //rotate and zoom -
+            tl.to("pacote", 1, {width:50, x:180, rotation:-90});
+            //send
+            tl.to("pacote", 4, {y:600});
 
             tl.call(function() {
                 $ionicPopup.alert({
-                    title: '=)',
-                    template: 'acabou'
+                    title: 'Fim',
+                    template: "{{'TWHS_END' | translate}}"
                 });
             });
+
+            //hide
+            tl.to("pacote", 1, {className:"ng-hide"});
 
         };
     })

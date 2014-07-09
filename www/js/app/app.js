@@ -21,26 +21,6 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
                 controller: 'AppCtrl'
             })
 
-            .state('app.playlists', {
-                url: "/playlists",
-                views: {
-                    'menuContent' :{
-                        templateUrl: "templates/playlists.html",
-                        controller: 'PlaylistsCtrl'
-                    }
-                }
-            })
-
-            .state('app.single', {
-                url: "/playlists/:playlistId",
-                views: {
-                    'menuContent' :{
-                        templateUrl: "templates/playlist.html",
-                        controller: 'PlaylistCtrl'
-                    }
-                }
-            })
-
             .state('app.about', {
                 url: "/about",
                 views: {
@@ -131,7 +111,7 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             TWHS_STEP_1: 'O cliente envia um pacote (requisição) com as flags SYN = 1 e ACK = 0',
             TWHS_STEP_2: 'O servidor responde com um pacote contendo as flags SYN = 1 e ACK = 1, representando que a conexão foi aceita e estabelecida',
             TWHS_STEP_3: 'O cliente responde com um pacote com a flag ACK = 1',
-            TWHS_STEP_4: 'Após o término dos 3 passos, o Three-way Handshake está completo e as duas partes podem trocar dados entre si.'
+            TWHS_END: 'Após o término dos 3 passos, o Three-way Handshake está completo e as duas partes podem trocar dados entre si.'
         });
 
         $translateProvider.preferredLanguage('pt-br');
