@@ -27,10 +27,10 @@ c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\css\style.css \
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\bg \
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\icons \
-c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\icons\host-64.png \
-c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\icons\modem-48.png \
+c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\icons\client.ico \
+c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\icons\laptop.ico \
+c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\icons\modem.ico \
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\icons\pacote.png \
-c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\icons\server-64.png \
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\icons\server-icon.ico \
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\img\icons\twhs-bg.png \
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\js\app \
@@ -128,7 +128,5 @@ c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\templates\config.html \
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\templates\contact.html \
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\templates\menu.html \
-c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\templates\playlist.html \
-c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\templates\playlists.html \
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\assets\www\templates\three-way-handshake.html \
 c:\Users\jonathan.oliveira\Documents\Pessoal\netanimations-app\platforms\android\ant-build\AndroidManifest.xml \

@@ -22,18 +22,27 @@ angular.module('netanimations.controllers', [])
     .controller('ThreeWayHandshakeCtrl', function($scope, $ionicPopup) {
 
         $scope.showPresentation = true;
+        $scope.end = false;
+
+        var tl = new TimelineLite();
+
+        buildAnimation();
 
         $scope.start = function() {
             $scope.showPresentation = false;
-            animation();
+            $scope.end = false;
+            tl.seek(0);
+            tl.start();
         };
 
-        function animation() {
+        $scope.restart = function () {
+            tl.stop();
+            $scope.showPresentation = true;
+        };
 
-            var tl = new TimelineLite();
-
+        function buildAnimation() {
             //initial position
-            tl.to("pacote", 0, {x:230, y:30});
+            tl.to("pacote", 0, {x:230, y:30, width:"50px"});
             tl.delay(1);
 
             tl.call(function() {
@@ -104,7 +113,7 @@ angular.module('netanimations.controllers', [])
             //rotate and zoom -
             tl.to("pacote", 1, {width:50, x:180, rotation:+90});
             //send
-            tl.to("pacote", 3, {y:30});
+            tl.to("pacote", 4, {y:30});
             //hide
             tl.to("pacote", 0, {className:"ng-hide"});
 
@@ -141,12 +150,14 @@ angular.module('netanimations.controllers', [])
             //rotate and zoom -
             tl.to("pacote", 1, {width:50, x:180, rotation:-90});
             //send
-            tl.to("pacote", 3, {y:600});
+            tl.to("pacote", 4, {y:600});
 
             tl.call(function() {
                 $ionicPopup.alert({
                     title: 'Fim',
                     template: "{{'TWHS_END' | translate}}"
+                }).then(function() {
+                    $scope.end = true;
                 });
             });
 

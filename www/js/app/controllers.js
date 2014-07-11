@@ -22,12 +22,17 @@ angular.module('netanimations.controllers', [])
     .controller('ThreeWayHandshakeCtrl', function($scope, $ionicPopup) {
 
         $scope.showPresentation = true;
+        $scope.end = false;
 
         var tl = new TimelineLite();
 
+        buildAnimation();
+
         $scope.start = function() {
             $scope.showPresentation = false;
-            animation();
+            $scope.end = false;
+            tl.seek(0);
+            tl.start();
         };
 
         $scope.restart = function () {
@@ -35,8 +40,7 @@ angular.module('netanimations.controllers', [])
             $scope.showPresentation = true;
         };
 
-        function animation() {
-
+        function buildAnimation() {
             //initial position
             tl.to("pacote", 0, {x:230, y:30, width:"50px"});
             tl.delay(1);
@@ -152,6 +156,8 @@ angular.module('netanimations.controllers', [])
                 $ionicPopup.alert({
                     title: 'Fim',
                     template: "{{'TWHS_END' | translate}}"
+                }).then(function() {
+                    $scope.end = true;
                 });
             });
 
