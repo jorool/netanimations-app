@@ -41,16 +41,6 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
                 }
             })
 
-            .state('app.contact', {
-                url: "/contact",
-                views: {
-                    'menuContent' :{
-                        templateUrl: "templates/contact.html",
-                        controller: 'ContactCtrl'
-                    }
-                }
-            })
-
             .state('app.animations', {
                 url: "/animations",
                 views: {
@@ -70,6 +60,16 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
                     }
                 }
             })
+
+            .state('app.sequence-number',{
+                url: '/sequence-number',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/sequence-number.html',
+                        controller: 'SequenceNumberCtrl'
+                    }
+                }
+            })
         ;
 
         $urlRouterProvider.otherwise('/app/animations');
@@ -83,6 +83,7 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             CONTACT: 'Contact',
             ABOUT: 'About',
             CONTINUE: 'Continue',
+            INFO: 'Information',
 
             THREEWAY_HANDSHAKE: 'Three-way Handshake',
             THREEWAY_HANDSHAKE_DESC: 'TCP connection establishment process',
@@ -98,6 +99,7 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             CONTACT: 'Contato',
             ABOUT: 'Sobre',
             CONTINUE: 'Continuar',
+            INFO: 'Informação',
 
             STEP_1: 'Primeiro passo',
             STEP_2: 'Segundo passo',
@@ -111,7 +113,16 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             TWHS_STEP_1: 'O cliente envia um pacote (requisição) com as flags SYN = 1 e ACK = 0',
             TWHS_STEP_2: 'O servidor responde com um pacote contendo as flags SYN = 1 e ACK = 1, representando que a conexão foi aceita e estabelecida',
             TWHS_STEP_3: 'O cliente responde com um pacote com a flag ACK = 1',
-            TWHS_END: 'Após o término dos 3 passos, o Three-way Handshake está completo e as duas partes podem trocar dados entre si.'
+            TWHS_END: 'Após o término dos 3 passos, o Three-way Handshake está completo e as duas partes podem trocar dados entre si.',
+
+            SEQUENCE_NUMBER_TITLE: 'Número de sequência e de reconhecimento',
+            SEQUENCE_NUMBER_DESC: 'Dois dos mais importantes campos do cabeçalho TCP.',
+            SEQUENCE_NUMBER_PRESENTATION_1: 'Dois dos mais importantes campos do cabeçalho TCP são o campo de número de sequência e o campo de número de reconhecimento.',
+            SEQUENCE_NUMBER_PRESENTATION_2: 'Esses números são aplicados sobre a cadeia de bytes transmitidos, e não sobre a série de segmentos transmitidos.',
+            SEQUENCE_NUMBER_PRESENTATION_3: 'O número de sequência para um segmento é o número do primeiro byte do segmento. Ex: Suponha que um processo no host A deseja enviar uma mensagem ao processo no host B por uma conexão TCP.',
+            SEQUENCE_NUMBER_PRESENTATION_4: 'Considere que a cadeia de dados seja um arquivo de 500.000 bytes, o MSS (maximum segment size) seja de 1.000 bytes e que seja atribuído o número 0 ao primeiro byte da cadeia de dados.',
+            SEQUENCE_NUMBER_PRESENTATION_5: 'Neste caso, o TCP constrói 500 segmentos a partir da cadeia de dados. O primeiro segmento recebe o número de sequência 0, o segundo 1000, o terceiro 2000 e assim sucessivamente.',
+            SEQUENCE_NUMBER_PRESENTATION_6: 'Já o número de reconhecimento que um host atribui a seu segmento é o número de sequência do próximo byte que ele está aguardando. EX: O host B está prestes a enviar os bytes numerados de 0 a 535 ao host A. Como acabou de receber os bytes de 0 a 999, o host B envia como número de reconhecimento o valor 1000 referente ao próximo byte.'
         });
 
         $translateProvider.preferredLanguage('pt-br');

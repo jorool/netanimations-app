@@ -15,19 +15,19 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
+    <!-- app's js -->
     <script src="js/app/app.js"></script>
     <script src="js/app/module.js"></script>
-    <script src="js/vendor/angular-translate.js"></script>
-    <script src="js/vendor/TweenMax.js"></script>
-    <script src="js/vendor/TimelineMax.js"></script>
+    <script src="js/vendor/angular-translate/2.2.0/angular-translate.min.js"></script>
+    <script src="js/vendor/greensock-js/1.13.1/TweenMax.min.js"></script>
+    <script src="js/vendor/greensock-js/1.13.1/TimelineMax.min.js"></script>
 
-    <!-- Controladores -->
+    <!-- controllers -->
     <script src="js/app/controllers.js"></script>
 
 </head>
 
-<body ng-app="netanimations">
-<ion-nav-view animation="slide-left-right"></ion-nav-view>
+<body ng-app="netanimations" class="platform-android platform-cordova platform-webview">
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
 </body>
 </html>
