@@ -80,9 +80,9 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             ENGLISH: 'English',
             CONFIGS: 'Config',
             ANIMATIONS: 'Animations',
-            CONTACT: 'Contact',
             ABOUT: 'About',
             CONTINUE: 'Continue',
+            INFO: 'Information',
 
             THREEWAY_HANDSHAKE: 'Three-way Handshake',
             THREEWAY_HANDSHAKE_DESC: 'TCP connection establishment process',
@@ -95,9 +95,9 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             ENGLISH: 'Inglês',
             CONFIGS: 'Configurações',
             ANIMATIONS: 'Animações',
-            CONTACT: 'Contato',
             ABOUT: 'Sobre',
             CONTINUE: 'Continuar',
+            INFO: 'Informação',
 
             STEP_1: 'Primeiro passo',
             STEP_2: 'Segundo passo',
@@ -117,11 +117,10 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             SEQUENCE_NUMBER_DESC: 'Dois dos mais importantes campos do cabeçalho TCP.',
             SEQUENCE_NUMBER_PRESENTATION_1: 'Dois dos mais importantes campos do cabeçalho TCP são o campo de número de sequência e o campo de número de reconhecimento.',
             SEQUENCE_NUMBER_PRESENTATION_2: 'Esses números são aplicados sobre a cadeia de bytes transmitidos, e não sobre a série de segmentos transmitidos.',
-            SEQUENCE_NUMBER_PRESENTATION_3: 'O número de sequência para um segmento é o número do primeiro byte do segmento.',
-            SEQUENCE_NUMBER_PRESENTATION_4: 'EX: Suponha que um processo no host A deseja enviar uma mensagem ao processo no host B por uma conexão TCP.',
-            SEQUENCE_NUMBER_PRESENTATION_5: 'Considere que a cadeia de dados seja um arquivo de 500.000 bytes, o MSS (maximum segment size) seja de 1.000 bytes e que seja atribuído o número 0 ao primeiro byte da cadeia de dados.',
-            SEQUENCE_NUMBER_PRESENTATION_6: 'Neste caso, o TCP constrói 500 segmentos a partir da cadeia de dados.',
-            SEQUENCE_NUMBER_PRESENTATION_7: 'O primeiro segmento recebe o número de sequência 0, o segundo 1000, o terceiro 2000 e assim sucessivamente.'
+            SEQUENCE_NUMBER_PRESENTATION_3: 'O número de sequência para um segmento é o número do primeiro byte do segmento. Ex: Suponha que um processo no host A deseja enviar uma mensagem ao processo no host B por uma conexão TCP.',
+            SEQUENCE_NUMBER_PRESENTATION_4: 'Considere que a cadeia de dados seja um arquivo de 500.000 bytes, o MSS (maximum segment size) seja de 1.000 bytes e que seja atribuído o número 0 ao primeiro byte da cadeia de dados.',
+            SEQUENCE_NUMBER_PRESENTATION_5: 'Neste caso, o TCP constrói 500 segmentos a partir da cadeia de dados. O primeiro segmento recebe o número de sequência 0, o segundo 1000, o terceiro 2000 e assim sucessivamente.',
+            SEQUENCE_NUMBER_PRESENTATION_6: 'Já o número de reconhecimento que um host atribui a seu segmento é o número de sequência do próximo byte que ele está aguardando. EX: O host B está prestes a enviar os bytes numerados de 0 a 535 ao host A. Como acabou de receber os bytes de 0 a 999, o host B envia como número de reconhecimento o valor 1000 referente ao próximo byte.'
         });
 
         $translateProvider.preferredLanguage('pt-br');

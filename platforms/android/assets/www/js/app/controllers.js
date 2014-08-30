@@ -165,38 +165,158 @@ angular.module('netanimations.controllers', [])
         };
     })
 
-    .controller('SequenceNumberCtrl', function($scope) {
+    .controller('SequenceNumberCtrl', function($scope, $ionicPopup) {
         TweenLite.defaultEase = Power1.easeInOut;
 
-        var tl = new TimelineMax({paused:true});
-        tl.set("#instructions", {text:"Start with 3 boxes <code>{position:absolute;}</code>", immediateRender:true})
-            .set("#instructions", {text:"Move boxes to <code>{left:50%, top:50%}</code> to place their origins in the center"}, 0.0001)
-            .to("#next", 0.1, {autoAlpha:0})
-            .staggerTo(".box", 1, {left:"50%", top:"50%"}, 0.2)
-            .to("#next", 0.1, {autoAlpha:1, yoyo:true, repeat:2})
-            .addPause()
+        var tl = new TimelineMax();
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                title: "{{'INFO' | translate}}",
+                template: "{{'SEQUENCE_NUMBER_PRESENTATION_1' | translate }}"
+            }).then(function() {
+                tl.resume();
+            });
+        });
 
-            .set("#instructions", {text:"Tween to <code>{xPercent:-50, yPercent:-50}</code> to get their centers aligned"}, "+=0.01")
-            .to("#next", 0.1, {autoAlpha:0})
-            .staggerTo(".box", 0.5, {xPercent:-50, yPercent:-50}, 0.1)
-            .to("#next", 0.1, {autoAlpha:1, yoyo:true, repeat:2})
-            .addPause()
+        tl.add(".pacote", 0, {width: 50});
 
-            .set("#instructions", {text:"Now a <code>{x:150}</code> tween will always be 150px from the center"}, "+=0.01")
-            .to("#next", 0.1, {autoAlpha:0})
-            .staggerTo(".box", 0.5, {x:150}, 0.1)
-            .to("#next", 0.1, {autoAlpha:1, yoyo:true, repeat:2})
-            .addPause()
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                title: "{{'INFO' | translate}}",
+                template: "{{'SEQUENCE_NUMBER_PRESENTATION_2' | translate }}"
+            }).then(function() {
+                tl.resume();
+            });
+        });
 
-            .set("#instructions", {text:"Bonus! <code>{rotation:360}</code>, still uses a center transform origin!"}, "+=0.01")
-            .to("#next", 0.1, {autoAlpha:0})
-            .staggerTo(".box", 0.8, {rotation:360}, 0.2)
-            .set("#next", {text:"restart"})
-            .to("#next", 0.1, {autoAlpha:1});
+        tl.to(".pacote", 0.1, {width: 50});
 
-        $scope.continue = function() {
-            tl.play();
-        };
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                title: "{{'INFO' | translate}}",
+                template: "{{'SEQUENCE_NUMBER_PRESENTATION_3' | translate }}"
+            }).then(function() {
+                tl.resume();
+            });
+        });
+
+        tl.to(".pacote", 0.1, {width: 50});
+
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                title: "{{'INFO' | translate}}",
+                template: "{{'SEQUENCE_NUMBER_PRESENTATION_4' | translate }}"
+            }).then(function() {
+                tl.resume();
+            });
+        });
+
+        tl.to(".pacote", 0.1, {width: 50});
+
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                title: "{{'INFO' | translate}}",
+                template: "{{'SEQUENCE_NUMBER_PRESENTATION_5' | translate }}"
+            }).then(function() {
+                tl.resume();
+            });
+        });
+
+        //zoom
+        tl.to(".pacote", 1, {width: 300, left:"50%", top:"50%"});
+
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                title: 'Primeiro pacote',
+                template: "Número de sequência: 0 <br/>"
+            }).then(function() {
+                tl.resume();
+            });
+        });
+
+        //zoom + rotate
+        tl.to(".pacote", 1, {width: 50, rotation: 90});
+
+        //send
+        tl.to(".pacote", 3, {y: 400});
+
+        //hide
+        tl.to(".pacote", 0, {className:"ng-hide"});
+
+        tl.call(function() {
+           tl.pause();
+           $ionicPopup.alert({
+               title: '',
+               template: "{{'SEQUENCE_NUMBER_PRESENTATION_6' | translate}}"
+           }).then(function () {
+               tl.resume();
+           });
+        });
+
+        //rerotate
+        tl.to(".pacote", 0.5, {rotation: 0});
+        //show
+        tl.to(".pacote", 0, {className:"ng-show", width: 300});
+
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+               template: "Número de sequência: 0<br>"+
+                   "Número de reconhecimento: 1000"
+            }).then(function () {
+                tl.resume();
+            });
+        });
+
+        //rotate and zoom
+        tl.to(".pacote", 0.5, {width: 50, rotation: 90});
+        //send
+        tl.to(".pacote", 3, {y: 0});
+        //hide
+        tl.to(".pacote", 0, {className:"ng-hide"});
+
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                template: 'Ao receber o segmento com o número de reconhecimento 1000, o host A encaminha os bytes de 1000 a 1999 ao host B. O host A também solicita o próximo segmento ao host B, informando o número 536 no campo número de reconhecimento.'
+            }).then(function () {
+                tl.resume();
+            });
+        });
+
+        //mostrar o pacote
+        //numero de sequencia 1000
+        //numero de reconhecimento: 536
+
+        //envia
+
+        //Vamos considerar que logo em seguida o host A encaminha o próximo segmento ao host B, com número de sequência 2000.
+        //Como o host A ainda não recebeu o segmento de sequência 536, ele informa novamente este valor no campo número de reconhecimento.
+
+        //origem mostra outro pacote
+        //numero de sequencia: 2000
+        //numero de reconhecimento: 536
+
+        //envia
+
+        //O host B por sua vez envia o segmento com número de sequência 536 ao host A.
+        //Como o host B recebeu os segmentos de sequência 1000 e 2000 sucessivamente, ele envia no campo número de reconhecimento o valor 3000, que é o próximo segmento a ser enviado pelo host A.
+
+        //Dizemos que o TCP provê reconhecimentos cumulativos, pois ele reconhece todos os bytes até o primeiro byte que está faltando na cadeia.
+
+        //destino mostra pacote
+        //numero de sequencia: 536
+        //numero de reconhecimento: 3000
+
+        //envia
+
+        //fim!
     })
 
     .controller('AboutCtrl', function($scope, $stateParams) {

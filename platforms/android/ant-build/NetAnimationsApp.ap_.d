@@ -166,7 +166,6 @@ c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\andr
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\templates\about.html \
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\templates\animations.html \
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\templates\config.html \
-c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\templates\contact.html \
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\templates\menu.html \
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\templates\sequence-number.html \
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\templates\three-way-handshake.html \
