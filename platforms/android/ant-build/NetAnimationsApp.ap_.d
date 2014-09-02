@@ -45,7 +45,9 @@ c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\andr
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\img\icons\client.ico \
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\img\icons\laptop.ico \
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\img\icons\modem.ico \
-c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\img\icons\pacote.png \
+c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\img\icons\segment-sn-01.png \
+c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\img\icons\segment-sn-02.png \
+c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\img\icons\segment-twhs.png \
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\img\icons\server-icon.ico \
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\img\icons\twhs-bg.png \
 c:\Users\Jonathan\Dropbox\_UEM\TCC\Redes - 2014\netanimations-app\platforms\android\assets\www\js\app \

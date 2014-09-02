@@ -168,67 +168,74 @@ angular.module('netanimations.controllers', [])
     .controller('SequenceNumberCtrl', function($scope, $ionicPopup) {
         TweenLite.defaultEase = Power1.easeInOut;
 
+        var zoomIn = {width: 300, left:"50%", top:"50%"};
+        var zoomOutAndRotate90 = {width: 50, rotation: 90};
+        var rotate0 = {rotation: 0};
+        var hide = {className:"ng-hide"};
+        var show = {className:"ng-show"};
+        var sendBottom = {y: 360};
+        var sendTop = {y: 0};
+
         var tl = new TimelineMax();
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "{{'INFO' | translate}}",
                 template: "{{'SEQUENCE_NUMBER_PRESENTATION_1' | translate }}"
             }).then(function() {
                 tl.resume();
             });
         });
 
-        tl.add(".pacote", 0, {width: 50});
+        //dummy step - do not remove
+        tl.add(".segment-01", 0, {width: 50});
 
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "{{'INFO' | translate}}",
                 template: "{{'SEQUENCE_NUMBER_PRESENTATION_2' | translate }}"
             }).then(function() {
                 tl.resume();
             });
         });
 
-        tl.to(".pacote", 0.1, {width: 50});
+        //dummy step - do not remove
+        tl.to(".segment-01", 0.1, {width: 50});
 
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "{{'INFO' | translate}}",
                 template: "{{'SEQUENCE_NUMBER_PRESENTATION_3' | translate }}"
             }).then(function() {
                 tl.resume();
             });
         });
 
-        tl.to(".pacote", 0.1, {width: 50});
+        //dummy step - do not remove
+        tl.to(".segment-01", 0.1, {width: 50});
 
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "{{'INFO' | translate}}",
                 template: "{{'SEQUENCE_NUMBER_PRESENTATION_4' | translate }}"
             }).then(function() {
                 tl.resume();
             });
         });
 
-        tl.to(".pacote", 0.1, {width: 50});
+        //dummy step - do not remove
+        tl.to(".segment-01", 0.1, {width: 50});
 
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "{{'INFO' | translate}}",
                 template: "{{'SEQUENCE_NUMBER_PRESENTATION_5' | translate }}"
             }).then(function() {
                 tl.resume();
             });
         });
 
-        //zoom
-        tl.to(".pacote", 1, {width: 300, left:"50%", top:"50%"});
+        tl.to(".segment-01", 1, show);
+        tl.to(".segment-01", 1, zoomIn);
 
         tl.call(function() {
             tl.pause();
@@ -240,14 +247,9 @@ angular.module('netanimations.controllers', [])
             });
         });
 
-        //zoom + rotate
-        tl.to(".pacote", 1, {width: 50, rotation: 90});
-
-        //send
-        tl.to(".pacote", 3, {y: 400});
-
-        //hide
-        tl.to(".pacote", 0, {className:"ng-hide"});
+        tl.to(".segment-01", 1, zoomOutAndRotate90);
+        tl.to(".segment-01", 3, sendBottom);
+        tl.to(".segment-01", 0, hide);
 
         tl.call(function() {
            tl.pause();
@@ -259,10 +261,11 @@ angular.module('netanimations.controllers', [])
            });
         });
 
-        //rerotate
-        tl.to(".pacote", 0.5, {rotation: 0});
-        //show
-        tl.to(".pacote", 0, {className:"ng-show", width: 300});
+        //initial position of segment 2
+        tl.to(".segment-02", 0, sendBottom);
+        tl.to(".segment-02", 0, {yPercent: -50});
+        tl.to(".segment-02", 1, show);
+        tl.to(".segment-02", 1, zoomIn);
 
         tl.call(function() {
             tl.pause();
@@ -274,12 +277,9 @@ angular.module('netanimations.controllers', [])
             });
         });
 
-        //rotate and zoom
-        tl.to(".pacote", 0.5, {width: 50, rotation: 90});
-        //send
-        tl.to(".pacote", 3, {y: 0});
-        //hide
-        tl.to(".pacote", 0, {className:"ng-hide"});
+        tl.to(".segment-02", 1, zoomOutAndRotate90);
+        tl.to(".segment-02", 3, sendTop);
+        tl.to(".segment-02", 0, hide);
 
         tl.call(function() {
             tl.pause();
@@ -290,33 +290,102 @@ angular.module('netanimations.controllers', [])
             });
         });
 
-        //mostrar o pacote
-        //numero de sequencia 1000
-        //numero de reconhecimento: 536
+        tl.to(".segment-02", 0, rotate0);
+        tl.to(".segment-02", 0, show);
+        tl.to(".segment-02", 1, zoomIn);
 
-        //envia
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                template: "Número de sequência: 1000<br>"+
+                    "Número de reconhecimento: 536"
+            }).then(function () {
+                tl.resume();
+            });
+        });
 
-        //Vamos considerar que logo em seguida o host A encaminha o próximo segmento ao host B, com número de sequência 2000.
-        //Como o host A ainda não recebeu o segmento de sequência 536, ele informa novamente este valor no campo número de reconhecimento.
+        tl.to(".segment-02", 1, zoomOutAndRotate90);
+        tl.to(".segment-02", 3, sendBottom);
+        tl.to(".segment-02", 0, hide);
+
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                template: 'Vamos considerar que logo em seguida o host A encaminha o próximo segmento ao host B, com número de sequência 2000.'+
+                    'Como o host A ainda não recebeu o segmento de sequência 536, ele informa novamente este valor no campo número de reconhecimento.'
+            }).then(function () {
+                tl.resume();
+            });
+        });
 
         //origem mostra outro pacote
-        //numero de sequencia: 2000
-        //numero de reconhecimento: 536
+        tl.to(".segment-02", 0, rotate0);
+        tl.to(".segment-02", 0, sendTop);
+        tl.to(".segment-02", 0, show);
+        tl.to(".segment-02", 1, zoomIn);
 
-        //envia
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                template: "Número de sequência: 2000<br>"+
+                    "Número de reconhecimento: 536"
+            }).then(function () {
+                tl.resume();
+            });
+        });
 
-        //O host B por sua vez envia o segmento com número de sequência 536 ao host A.
-        //Como o host B recebeu os segmentos de sequência 1000 e 2000 sucessivamente, ele envia no campo número de reconhecimento o valor 3000, que é o próximo segmento a ser enviado pelo host A.
+        tl.to(".segment-02", 1, zoomOutAndRotate90);
+        tl.to(".segment-02", 3, sendBottom);
+        tl.to(".segment-02", 0, hide);
 
-        //Dizemos que o TCP provê reconhecimentos cumulativos, pois ele reconhece todos os bytes até o primeiro byte que está faltando na cadeia.
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                template: 'O host B por sua vez envia o segmento com número de sequência 536 ao host A.'+
+                    'Como o host B recebeu os segmentos de sequência 1000 e 2000 sucessivamente, ele envia no campo número de reconhecimento o valor 3000, que é o próximo segmento a ser enviado pelo host A.'
+            }).then(function () {
+                tl.resume();
+            });
+        });
 
-        //destino mostra pacote
-        //numero de sequencia: 536
-        //numero de reconhecimento: 3000
+        //dummy step - do not remove
+        tl.to(".segment-01", 0.1, {width: 50});
 
-        //envia
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                template: 'Dizemos que o TCP provê reconhecimentos cumulativos, pois ele reconhece todos os bytes até o primeiro byte que está faltando na cadeia.'
+            }).then(function () {
+                tl.resume();
+            });
+        });
 
-        //fim!
+        //origin shows another segment
+        tl.to(".segment-02", 0, sendTop);
+        tl.to(".segment-02", 0, rotate0);
+        tl.to(".segment-02", 0, show);
+        tl.to(".segment-02", 1, zoomIn);
+
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                template: "Número de sequência: 536<br>"+
+                    "Número de reconhecimento: 3000"
+            }).then(function () {
+                tl.resume();
+            });
+        });
+
+        tl.to(".segment-02", 1, zoomOutAndRotate90);
+        tl.to(".segment-02", 3, sendBottom);
+        tl.to(".segment-02", 0, hide);
+
+        //end
+        tl.call(function() {
+            $ionicPopup.alert({
+                template: 'Fim!'
+            });
+        });
     })
 
     .controller('AboutCtrl', function($scope, $stateParams) {
