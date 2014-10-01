@@ -4,7 +4,6 @@ angular.module('netanimations.controllers', [])
     })
 
     .controller('AnimationsCtrl', function($scope, $stateParams) {
-
     })
 
     .controller('ConfigCtrl', function($scope, $stateParams, $translate) {
@@ -12,10 +11,6 @@ angular.module('netanimations.controllers', [])
         $scope.changeLanguage = function (key) {
             $translate.use(key);
         };
-
-    })
-
-    .controller('ContactCtrl', function($scope) {
 
     })
 
@@ -386,6 +381,10 @@ angular.module('netanimations.controllers', [])
                 template: 'Fim!'
             });
         });
+    })
+
+    .controller('PureAlohaCtrl', function($scope, $stateParams) {
+
     })
 
     .controller('AboutCtrl', function($scope, $stateParams) {
