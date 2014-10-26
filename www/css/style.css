@@ -1,8 +1,19 @@
 .twhs_bg {
-    background-image: url(../img/icons/twhs-bg.png);
+    background-image: url(../img/threeway-handshake/twhs-bg.png);
     height: 600px;
     width: 400px;
-    background-size: cover;"
+    background-size: cover;
+}
+
+.sn-bg {
+    background-image:url("../img/sequence-number/sn-bg.png");
+    background-size:cover;
+    width:350px;
+    height:600px;
+    text-align:center;
+    position:relative;
+    line-height:40px;
+    margin:20px auto;
 }
 
 .animation-frame {

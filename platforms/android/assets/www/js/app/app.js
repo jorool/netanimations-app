@@ -70,6 +70,26 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
                     }
                 }
             })
+
+            .state('app.pure-aloha',{
+                url: '/pure-aloha',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/pure-aloha.html',
+                        controller: 'PureAlohaCtrl'
+                    }
+                }
+            })
+
+            .state('app.novo',{
+                url: '/novo',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/novo.html',
+                        controller: 'NovoCtrl'
+                    }
+                }
+            })
         ;
 
         $urlRouterProvider.otherwise('/app/animations');
@@ -120,7 +140,10 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             SEQUENCE_NUMBER_PRESENTATION_3: 'O número de sequência para um segmento é o número do primeiro byte do segmento. Ex: Suponha que um processo no host A deseja enviar uma mensagem ao processo no host B por uma conexão TCP.',
             SEQUENCE_NUMBER_PRESENTATION_4: 'Considere que a cadeia de dados seja um arquivo de 500.000 bytes, o MSS (maximum segment size) seja de 1.000 bytes e que seja atribuído o número 0 ao primeiro byte da cadeia de dados.',
             SEQUENCE_NUMBER_PRESENTATION_5: 'Neste caso, o TCP constrói 500 segmentos a partir da cadeia de dados. O primeiro segmento recebe o número de sequência 0, o segundo 1000, o terceiro 2000 e assim sucessivamente.',
-            SEQUENCE_NUMBER_PRESENTATION_6: 'Já o número de reconhecimento que um host atribui a seu segmento é o número de sequência do próximo byte que ele está aguardando. EX: O host B está prestes a enviar os bytes numerados de 0 a 535 ao host A. Como acabou de receber os bytes de 0 a 999, o host B envia como número de reconhecimento o valor 1000 referente ao próximo byte.'
+            SEQUENCE_NUMBER_PRESENTATION_6: 'Já o número de reconhecimento que um host atribui a seu segmento é o número de sequência do próximo byte que ele está aguardando. EX: O host B está prestes a enviar os bytes numerados de 0 a 535 ao host A. Como acabou de receber os bytes de 0 a 999, o host B envia como número de reconhecimento o valor 1000 referente ao próximo byte.',
+
+            PURE_ALOHA_TITLE: 'Protocolo Aloha Puro',
+            PURE_ALOHA_DESC: 'Resolvendo problemas de alocação de canais na camada de enlace'
         });
 
         $translateProvider.preferredLanguage('pt-br');

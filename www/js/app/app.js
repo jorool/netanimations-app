@@ -80,6 +80,16 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
                     }
                 }
             })
+
+            .state('app.novo',{
+                url: '/novo',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/novo.html',
+                        controller: 'NovoCtrl'
+                    }
+                }
+            })
         ;
 
         $urlRouterProvider.otherwise('/app/animations');

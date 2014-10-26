@@ -1,6 +1,8 @@
-This is an addon starter template for the [Ionic Framework](http://ionicframework.com/).
+This is then NetAnimations App project.
 
-## How to use this template
+NetAnimations is an mobile app made with [Ionic Framework](http://ionicframework.com/).
+
+## How to build this project
 
 *This template does not work on its own*. It is missing the Ionic library, and AngularJS.
 
