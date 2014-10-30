@@ -143,7 +143,16 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             SEQUENCE_NUMBER_PRESENTATION_6: 'Já o número de reconhecimento que um host atribui a seu segmento é o número de sequência do próximo byte que ele está aguardando. EX: O host B está prestes a enviar os bytes numerados de 0 a 535 ao host A. Como acabou de receber os bytes de 0 a 999, o host B envia como número de reconhecimento o valor 1000 referente ao próximo byte.',
 
             PURE_ALOHA_TITLE: 'Protocolo Aloha Puro',
-            PURE_ALOHA_DESC: 'Resolvendo problemas de alocação de canais na camada de enlace'
+            PURE_ALOHA_DESC: 'Resolvendo problemas de alocação de canais na camada de enlace',
+            PURE_ALOHA_PRESENTATION_1: 'O protocolo Aloha puro é um protocolo de acesso aleatório, sem intervalo e totalmente descentralizado.',
+            PURE_ALOHA_PRESENTATION_2: 'Quando um quadro chega pela primeira vez, o host imediatamente transmite o quadro inteiro ao canal broadcast.',
+            PURE_ALOHA_PRESENTATION_3: 'Usaremos um exemplo para demonstrar o funcionamento do protocolo Aloha. Ex: O host A deseja enviar um quadro para o host C e o encaminha ao canal broadcast.',
+            PURE_ALOHA_PRESENTATION_4: 'Durante a transmissão, o transmissor é capaz de inferir se houve uma colisão ou não do quadro enviado.',
+            PURE_ALOHA_PRESENTATION_5: 'Agora, suponha que o host B também deseja enviar um quadro para o host C e o encaminha ao canal broadcast no mesmo momento em que o quadro enviado pelo host A é transmitido, ocasionando assim uma colisão.',
+            PURE_ALOHA_PRESENTATION_6: 'Neste caso o host A retransmite imediatamente o quadro através do canal broadcast.',
+            PURE_ALOHA_PRESENTATION_7: 'Considere p uma probabilidade, ou seja, um número entre 0 e 1.',
+            PURE_ALOHA_PRESENTATION_8: 'O host B aguardará por um tempo de transmissão de quadro e então retransmitirá o quadro com probabilidade p,ou aguardará por um outro tempo de quadro com probabilidade 1-p.',
+
         });
 
         $translateProvider.preferredLanguage('pt-br');

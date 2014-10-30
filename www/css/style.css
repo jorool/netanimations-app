@@ -1,12 +1,4 @@
-.twhs_bg {
-    background-image: url(../img/threeway-handshake/twhs-bg.png);
-    height: 600px;
-    width: 400px;
-    background-size: cover;
-}
-
-.sn-bg {
-    background-image:url("../img/sequence-number/sn-bg.png");
+.animation-frame {
     background-size:cover;
     width:350px;
     height:600px;
@@ -16,10 +8,27 @@
     margin:20px auto;
 }
 
-.animation-frame {
-    width:90%;
-    position:relative;
-    text-align:center;
-    line-height:40px;
-    margin:20px auto;
+.sn-bg {
+    background-image:url("../img/sequence-number/sn-bg.png");
+}
+
+.twhs-bg {
+    background-image: url(../img/threeway-handshake/twhs-bg.png);
+}
+
+.pa-bg {
+    background-image: url(../img/pure-aloha/pa-bg.png);
+}
+
+.box {
+    position: relative;
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
+    float: left;
+    border: 1px solid #000000;
+}
+
+.white {
+    background-color: #ffffff;
 }

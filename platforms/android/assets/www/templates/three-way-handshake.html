@@ -7,22 +7,8 @@
     </ion-nav-buttons>
     <ion-content class="has-header">
 
-        <div class="card" ng-show="showPresentation">
-            <div class="item item-divider" translate>
-                THREEWAY_HANDSHAKE
-            </div>
-            <div class="item item-text-wrap" translate>
-                THREEWAY_HANDSHAKE_PRESENTATION
-            </div>
-            <div class="item item-divider">
-                <button class="button button-full button-positive" ng-click="start()" translate>
-                    CONTINUE
-                </button>
-            </div>
-        </div>
-
-        <div id="animationFrame" ng-hide="showPresentation" class="twhs_bg">
-            <img id="pacote" src="./img/icons/pacote.png">
+        <div id="animationFrame" class="animation-frame twhs-bg">
+            <img class="segment ng-hide" src="./img/threeway-handshake/segment.png">
         </div>
 
     </ion-content>
