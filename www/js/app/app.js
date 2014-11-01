@@ -56,7 +56,7 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
                 views: {
                     'menuContent': {
                         templateUrl: "templates/three-way-handshake.html",
-                        controller: 'ThreeWayHandshakeCtrl'
+                        controller: 'controllers.ThreeWayHandshakeCtrl'
                     }
                 }
             })
@@ -103,6 +103,7 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             ABOUT: 'About',
             CONTINUE: 'Continue',
             INFO: 'Information',
+            ANIMATION_END: 'End of animation.',
 
             THREEWAY_HANDSHAKE: 'Three-way Handshake',
             THREEWAY_HANDSHAKE_DESC: 'TCP connection establishment process',
@@ -118,6 +119,7 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             ABOUT: 'Sobre',
             CONTINUE: 'Continuar',
             INFO: 'Informação',
+            ANIMATION_END: 'Fim da animação.',
 
             STEP_1: 'Primeiro passo',
             STEP_2: 'Segundo passo',
