@@ -106,9 +106,39 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             INFO: 'Information',
             ANIMATION_END: 'End of animation.',
 
+            STEP_1: 'First step',
+            STEP_2: 'Second step',
+            STEP_3: 'Third step',
+            STEP_4: 'Fourth step',
+            STEP_5: 'Fifth step',
+
             THREEWAY_HANDSHAKE: 'Three-way Handshake',
-            THREEWAY_HANDSHAKE_DESC: 'TCP connection establishment process',
-            THREEWAY_HANDSHAKE_PRESENTATION: 'Three-way Handshake is a process blablabla - um processo de acordo entre as duas partes que desejam estabelecer uma comunicação que consiste em três etapas.'
+            THREEWAY_HANDSHAKE_DESC: 'Process of TCP connection establishment',
+            THREEWAY_HANDSHAKE_PRESENTATION: 'The Three-Way Handshake is a process of agreement between the two parties wishing to establish a communication that consists of three steps.',
+            TWHS_STEP_1: 'O cliente envia um pacote (requisição) com as flags SYN = 1 e ACK = 0',
+            TWHS_STEP_2: 'The server responds with a packet containing the SYN = 1 and ACK = 1 flags, representing that the connection is accepted and established',
+            TWHS_STEP_3: 'The client responds with a packet with the ACK flag = 1',
+            TWHS_END: 'After the end of the 3 steps, the Three-way handshake is complete and the two parties can exchange data with each other.',
+
+            SEQUENCE_NUMBER_TITLE: 'Sequence number and acknowledgment',
+            SEQUENCE_NUMBER_DESC: 'Two of the most important fields of the TCP header.',
+            SEQUENCE_NUMBER_PRESENTATION_1: 'Two of the most important fields of the TCP header is the field sequence number and the acknowledgment number field.',
+            SEQUENCE_NUMBER_PRESENTATION_2: 'These numbers are applied to the string of bytes transmitted, and not on the number of segments transmitted.',
+            SEQUENCE_NUMBER_PRESENTATION_3: 'The sequence number for a segment is the number of the first byte of the segment. Ex: Suppose a process on host A wants to send a message to the process in host B over a TCP connection.',
+            SEQUENCE_NUMBER_PRESENTATION_4: 'Consider that the data string is a file of 500,000 bytes, the MSS (maximum segment size) is 1000 bytes and the number 0 is assigned to the first byte of the data string.',
+            SEQUENCE_NUMBER_PRESENTATION_5: 'In this case, TCP segments 500 builds from the data string. The first segment receives the sequence number 0, the second 1000, a third 2000 and so on.',
+            SEQUENCE_NUMBER_PRESENTATION_6: 'The number of recognition that a host assigns its segment is the sequence number of the next byte that it is waiting. EX: Host B is about to send the bytes numbered 0-535 to host A. As just get the bytes 0-999, host B sends acknowledgment number as the value for the upcoming 1000 byte.',
+
+            PURE_ALOHA_TITLE: 'Pure Aloha Protocol',
+            PURE_ALOHA_DESC: 'Solving channel allocation problems at the data link layer',
+            PURE_ALOHA_PRESENTATION_1: 'The pure Aloha protocol is random access, without intermission and totally decentralized.',
+            PURE_ALOHA_PRESENTATION_2: 'When a frame arrives first, the host immediately transmits the entire frame to the broadcast channel.',
+            PURE_ALOHA_PRESENTATION_3: 'We will use an example to demonstrate the operation of the Aloha protocol. Ex: The host A wants to send a frame to host C and forwards the broadcast channel.',
+            PURE_ALOHA_PRESENTATION_4: 'During transmission, the transmitter is able to infer whether or not there was a collision of frame sent.',
+            PURE_ALOHA_PRESENTATION_5: 'Now, suppose host B also wants to send a frame to host C and forwards the broadcast channel at the same time the frame sent by host A is transmitted, thereby causing a collision.',
+            PURE_ALOHA_PRESENTATION_6: 'In this case the host immediately retransmits the frame via the broadcast channel.',
+            PURE_ALOHA_PRESENTATION_7: 'Consider a probability p, or a number between 0 and 1.',
+            PURE_ALOHA_PRESENTATION_8: 'The host B waits for a transmission time frame and then retransmit the frame with probability p, or wait for another time frame with probability 1-p.'
         });
 
         $translateProvider.translations('pt-br', {
@@ -159,6 +189,6 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
 
         $translateProvider.preferredLanguage('pt-br');
 
-        $translateProvider.useCookieStorage();
+        //$translateProvider.useCookieStorage();
 
     });

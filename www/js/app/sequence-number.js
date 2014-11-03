@@ -17,7 +17,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "Informação",
+                title: "{{'INFORMATION' | translate }}",
                 template: "{{'SEQUENCE_NUMBER_PRESENTATION_1' | translate }}"
             }).then(function() {
                 tl.resume();
