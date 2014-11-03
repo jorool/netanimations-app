@@ -1,7 +1,9 @@
-angular.module('netanimations.controllers', [])
+angular.module('netanimations.sequencenumber', [])
 
     .controller('SequenceNumberCtrl', function($scope, $ionicPopup) {
         TweenLite.defaultEase = Power1.easeInOut;
+
+        $scope.end = false;
 
         var zoomIn = {width: 300, left:"50%", top:"50%"};
         var zoomOutAndRotate90 = {width: 40, rotation: 90};
@@ -233,6 +235,8 @@ angular.module('netanimations.controllers', [])
             $ionicPopup.alert({
                 title: 'Fim',
                 template: "{{'ANIMATION_END' | translate}}"
+            }).then(function () {
+                $scope.end = true;
             });
         });
     });

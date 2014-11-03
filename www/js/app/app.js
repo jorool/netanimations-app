@@ -1,4 +1,5 @@
-angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalprecht.translate'])
+angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalprecht.translate',
+    'netanimations.threewayhandshake', 'netanimations.sequencenumber', 'netanimations.purealoha'])
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -56,7 +57,7 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
                 views: {
                     'menuContent': {
                         templateUrl: "templates/three-way-handshake.html",
-                        controller: 'controllers.ThreeWayHandshakeCtrl'
+                        controller: 'ThreeWayHandshakeCtrl'
                     }
                 }
             })
@@ -153,10 +154,11 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             PURE_ALOHA_PRESENTATION_5: 'Agora, suponha que o host B também deseja enviar um quadro para o host C e o encaminha ao canal broadcast no mesmo momento em que o quadro enviado pelo host A é transmitido, ocasionando assim uma colisão.',
             PURE_ALOHA_PRESENTATION_6: 'Neste caso o host A retransmite imediatamente o quadro através do canal broadcast.',
             PURE_ALOHA_PRESENTATION_7: 'Considere p uma probabilidade, ou seja, um número entre 0 e 1.',
-            PURE_ALOHA_PRESENTATION_8: 'O host B aguardará por um tempo de transmissão de quadro e então retransmitirá o quadro com probabilidade p,ou aguardará por um outro tempo de quadro com probabilidade 1-p.',
-
+            PURE_ALOHA_PRESENTATION_8: 'O host B aguardará por um tempo de transmissão de quadro e então retransmitirá o quadro com probabilidade p,ou aguardará por um outro tempo de quadro com probabilidade 1-p.'
         });
 
         $translateProvider.preferredLanguage('pt-br');
+
+        $translateProvider.useCookieStorage();
 
     });

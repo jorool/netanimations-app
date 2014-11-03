@@ -1,7 +1,9 @@
-angular.module('netanimations.controllers', [])
+angular.module('netanimations.purealoha', [])
 
     .controller('PureAlohaCtrl', function($scope, $stateParams, $ionicPopup) {
         TweenLite.defaultEase = Power1.easeInOut;
+
+        $scope.end = false;
 
         var segment1 = "#segment-1";
         var segment2 = "#segment-2";
@@ -14,8 +16,6 @@ angular.module('netanimations.controllers', [])
         var sendDown = {top: "+=150px"};
         var sendRight = {left: "+=124px"};
         var sendLeft = {left: "-=124px"};
-
-        $scope.end = false;
 
         var tl = new TimelineMax();
 

@@ -1,4 +1,4 @@
-angular.module('netanimations.aa', [])
+angular.module('netanimations.threewayhandshake', [])
 
     .controller('ThreeWayHandshakeCtrl', function($scope, $ionicPopup) {
         $scope.end = false;
