@@ -130,6 +130,19 @@ angular.module('netanimations.purealoha', [])
             });
         });
 
+        //dummy step - do not remove
+        tl.to('.animationFrame', 0.5, {x: 0});
+
+        tl.call(function() {
+            tl.pause();
+            $ionicPopup.alert({
+                title: "Informação",
+                template: "{{'PURE_ALOHA_PRESENTATION_8' | translate}}"
+            }).then(function() {
+                tl.resume();
+            });
+        });
+
         //Host B sends segment to Host C
         tl.to(segment2, 0, initialPosition2);
         tl.to(segment2, 0, rotate0);
