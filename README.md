@@ -1,23 +1,38 @@
 # Welcome to the NetAnimations App project.
 
-NetAnimations is a mobile app built with [Ionic Framework](http://ionicframework.com/).
+NetAnimations is a [Learning Object Repository](www.din.uem.br/netanimations) of Computer Networking discipline. It is a mobile app built with [Ionic Framework](http://ionicframework.com/).
 
-## How to build this project
+Here you will find some animations that simulate complex and difficult process about the discipline of Computer Network.
 
-*This template does not work on its own*. It is missing the Ionic library, and AngularJS.
+These animations were developed in order to facilitate student's understanding and stimulate student interest in the discipline.
 
-To use this, either create a new ionic project using the ionic node.js utility, or copy and paste this into an existing Cordova project and download a release of Ionic separately.
+This repository was built with the purpose of providing the animations in the public domain. You can contribute with suggestions, corrections and ideas for new animations via e-mail (lafmartimiano@uem.br) or pull-requests.
 
-### With the Ionic tool:
+NetAnimations is a project of Informatics Department ([DIN](www.din.uem.br)) of State University of Maringá ([UEM](www.uem.br)).
 
-Take the name after `ionic-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+### Kept by
+
+Luciana Andréia Fondazzi Martimiano: Founder of the project.
+
+Jonathan Rodrigues de Oliveira: Collaborated with the mobile app.
+
+Danilo Camargo Bueno: Collaborated with repository creation and animations: Domain Name System, Hierarchical Routing and Subnets
+
+Elton Tanamati: Collaborated with the animations: The Hybrid Model, the process of three-way TCP handshake, the Pure Aloha Protocol, the Protocol Ethernet, TCP - sequence number and acknowledgment
+
+
+## How to build this project with the Ionic tool:
+
+Got to [Ionic Framework website](http://ionicframework.com/) and follow the steps to get Ionic running.
+
+You will need node.js to install Cordova and Ionic.
 
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myApp sidemenu
+$ sudo npm install -g ionic
+$ sudo npm install -g cordova
 ```
 
-Then, to run it, cd into `netanimations-app` and run:
+Then, to run it, cd into `netanimations-app` directory and run:
 
 ```bash
 $ ionic platform add android
