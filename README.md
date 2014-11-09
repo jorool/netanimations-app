@@ -1,6 +1,6 @@
-This is then NetAnimations App project.
+# Welcome to the NetAnimations App project.
 
-NetAnimations is an mobile app made with [Ionic Framework](http://ionicframework.com/).
+NetAnimations is a mobile app built with [Ionic Framework](http://ionicframework.com/).
 
 ## How to build this project
 
@@ -20,16 +20,16 @@ $ ionic start myApp sidemenu
 Then, to run it, cd into `netanimations-app` and run:
 
 ```bash
-$ ionic platform add ios
-$ ionic build ios
-$ ionic emulate ios
+$ ionic platform add android
+$ ionic build android
+$ ionic emulate android
 ```
 
-Substitute ios for android if not on a Mac, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
+Substitute android for ios if on a Mac.
 
 ## Demo
 http://plnkr.co/edit/0RXSDB?p=preview
 
 ## Issues
 If you do find an issue or an error please go to [issues](https://github.com/jorool/netanimations-app/issues).
-On the other hand, pull requests are welcome here!
+On the other hand, pull requests are aways welcome here!
