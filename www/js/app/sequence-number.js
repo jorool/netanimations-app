@@ -1,9 +1,11 @@
 angular.module('netanimations.sequencenumber', [])
 
-    .controller('SequenceNumberCtrl', function($scope, $ionicPopup) {
+    .controller('SequenceNumberCtrl', function($scope, $ionicPopup, $filter) {
         TweenLite.defaultEase = Power1.easeInOut;
 
         $scope.end = false;
+
+        $scope.title = $filter('translate')('INFORMATION');
 
         var zoomIn = {width: 300, left:"50%", top:"50%"};
         var zoomOutAndRotate90 = {width: 40, rotation: 90};
@@ -17,7 +19,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "{{'INFORMATION' | translate }}",
+                title: $scope.title,
                 template: "{{'SEQUENCE_NUMBER_PRESENTATION_1' | translate }}"
             }).then(function() {
                 tl.resume();
@@ -30,7 +32,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "Informação",
+                title: $scope.title,
                 template: "{{'SEQUENCE_NUMBER_PRESENTATION_2' | translate }}"
             }).then(function() {
                 tl.resume();
@@ -43,7 +45,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "Informação",
+                title: $scope.title,
                 template: "{{'SEQUENCE_NUMBER_PRESENTATION_3' | translate }}"
             }).then(function() {
                 tl.resume();
