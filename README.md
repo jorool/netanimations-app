@@ -40,10 +40,9 @@ $ ionic build android
 $ ionic emulate android
 ```
 
-Substitute android for ios if on a Mac.
+You will also need android sdk properly configured.
 
-## Demo
-http://plnkr.co/edit/0RXSDB?p=preview
+Substitute 'android' for 'ios' if on a Mac.
 
 ## Issues
 If you do find an issue or an error please go to [issues](https://github.com/jorool/netanimations-app/issues).
