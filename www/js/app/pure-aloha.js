@@ -1,6 +1,6 @@
 angular.module('netanimations.purealoha', [])
 
-    .controller('PureAlohaCtrl', function($scope, $stateParams, $ionicPopup) {
+    .controller('PureAlohaCtrl', function($scope, $ionicPopup, $translate) {
         TweenLite.defaultEase = Power1.easeInOut;
 
         $scope.end = false;
@@ -30,37 +30,44 @@ angular.module('netanimations.purealoha', [])
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                template: "{{'PURE_ALOHA_PRESENTATION_1' | translate}}"
-            }).then(function() {
-                tl.resume();
+
+            $translate(['INFO', 'PURE_ALOHA_PRESENTATION_1']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.INFO,
+                    template: translations.PURE_ALOHA_PRESENTATION_1
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
-        //dummy step - do not remove
-        tl.to('.animationFrame', 0.5, {x: 0});
+        tl.to('.animationFrame', 0.5, {x: 0}); //dummy step - do not remove
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                template: "{{'PURE_ALOHA_PRESENTATION_2' | translate}}"
-            }).then(function() {
-                tl.resume();
+
+            $translate(['INFO', 'PURE_ALOHA_PRESENTATION_2']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.INFO,
+                    template: translations.PURE_ALOHA_PRESENTATION_2
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
-        //dummy step - do not remove
-        tl.to('.animationFrame', 0.5, {x: 0});
+        tl.to('.animationFrame', 0.5, {x: 0}); //dummy step - do not remove
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                template: "{{'PURE_ALOHA_PRESENTATION_3' | translate}}"
-            }).then(function() {
-                tl.resume();
+
+            $translate(['INFO', 'PURE_ALOHA_PRESENTATION_3']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.INFO,
+                    template: translations.PURE_ALOHA_PRESENTATION_3
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
@@ -71,24 +78,29 @@ angular.module('netanimations.purealoha', [])
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                template: "{{'PURE_ALOHA_PRESENTATION_4' | translate}}"
-            }).then(function() {
-                tl.resume();
+
+            $translate(['INFO', 'PURE_ALOHA_PRESENTATION_4']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.INFO,
+                    template: translations.PURE_ALOHA_PRESENTATION_4
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
-        //dummy step - do not remove
-        tl.to('.animationFrame', 0.5, {x: 0});
+        tl.to('.animationFrame', 0.5, {x: 0}); //dummy step - do not remove
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                template: "{{'PURE_ALOHA_PRESENTATION_5' | translate}}"
-            }).then(function() {
-                tl.resume();
+
+            $translate(['INFO', 'PURE_ALOHA_PRESENTATION_5']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.INFO,
+                    template: translations.PURE_ALOHA_PRESENTATION_5
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
@@ -101,11 +113,14 @@ angular.module('netanimations.purealoha', [])
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                template: "{{'PURE_ALOHA_PRESENTATION_6' | translate}}"
-            }).then(function() {
-                tl.resume();
+
+            $translate(['INFO', 'PURE_ALOHA_PRESENTATION_6']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.INFO,
+                    template: translations.PURE_ALOHA_PRESENTATION_6
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
@@ -122,24 +137,29 @@ angular.module('netanimations.purealoha', [])
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                template: "{{'PURE_ALOHA_PRESENTATION_7' | translate}}"
-            }).then(function() {
-                tl.resume();
+
+            $translate(['INFO', 'PURE_ALOHA_PRESENTATION_7']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.INFO,
+                    template: translations.PURE_ALOHA_PRESENTATION_7
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
-        //dummy step - do not remove
-        tl.to('.animationFrame', 0.5, {x: 0});
+        tl.to('.animationFrame', 0.5, {x: 0}); //dummy step - do not remove
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                template: "{{'PURE_ALOHA_PRESENTATION_8' | translate}}"
-            }).then(function() {
-                tl.resume();
+
+            $translate(['INFO', 'PURE_ALOHA_PRESENTATION_8']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.INFO,
+                    template: translations.PURE_ALOHA_PRESENTATION_8
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
@@ -156,9 +176,11 @@ angular.module('netanimations.purealoha', [])
 
         //end
         tl.call(function() {
-            $ionicPopup.alert({
-                title: 'Fim',
-                template: "{{'ANIMATION_END' | translate}}"
+            $translate(['END', 'ANIMATION_END']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.END,
+                    template: translations.ANIMATION_END
+                });
             });
         });
 

@@ -105,6 +105,7 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             CONTINUE: 'Continue',
             INFO: 'Information',
             ANIMATION_END: 'End of animation.',
+            END: 'End',
 
             STEP_1: 'First step',
             STEP_2: 'Second step',
@@ -151,6 +152,7 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             CONTINUE: 'Continuar',
             INFO: 'Informação',
             ANIMATION_END: 'Fim da animação.',
+            END: 'Fim',
 
             STEP_1: 'Primeiro passo',
             STEP_2: 'Segundo passo',

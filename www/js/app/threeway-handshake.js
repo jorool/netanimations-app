@@ -1,6 +1,6 @@
 angular.module('netanimations.threewayhandshake', [])
 
-    .controller('ThreeWayHandshakeCtrl', function($scope, $ionicPopup) {
+    .controller('ThreeWayHandshakeCtrl', function($scope, $ionicPopup, $translate) {
         $scope.end = false;
 
         var tl = new TimelineLite();
@@ -26,11 +26,14 @@ angular.module('netanimations.threewayhandshake', [])
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Passo 1",
-                template: "{{'TWHS_STEP_1' | translate}}"
-            }).then(function(result) {
-                tl.resume();
+
+            $translate(['STEP_1', 'TWHS_STEP_1']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.STEP_1,
+                    template: translations.TWHS_STEP_1
+                }).then(function(result) {
+                    tl.resume();
+                });
             });
         });
 
@@ -47,7 +50,7 @@ angular.module('netanimations.threewayhandshake', [])
                     "Tam. da janela: WIN=8192bytes<br/>"+
                     "Flag SYN: SYN=1<br/>"+
                     "Flag ACK: ACK=0<br/>"
-            }).then(function(result) {
+            }).then(function() {
                 tl.resume();
             });
         });
@@ -58,11 +61,14 @@ angular.module('netanimations.threewayhandshake', [])
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Passo 2",
-                template: "{{'TWHS_STEP_2' | translate}}"
-            }).then(function(result) {
-                tl.resume();
+
+            $translate(['STEP_2', 'TWHS_STEP_2']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.STEP_2,
+                    template: translations.TWHS_STEP_2
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
@@ -80,7 +86,7 @@ angular.module('netanimations.threewayhandshake', [])
                     "Tam. da janela: WIN=32768bytes<br/>"+
                     "Flag SYN: SYN=1<br/>"+
                     "Flag ACK: ACK=1<br/>"
-            }).then(function(result) {
+            }).then(function() {
                 tl.resume();
             });
         });
@@ -91,11 +97,14 @@ angular.module('netanimations.threewayhandshake', [])
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Passo 3",
-                template: "{{'TWHS_STEP_3' | translate}}"
-            }).then(function(result) {
-                tl.resume();
+
+            $translate(['STEP_3', 'TWHS_STEP_3']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.STEP_3,
+                    template: translations.TWHS_STEP_3
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
@@ -113,7 +122,7 @@ angular.module('netanimations.threewayhandshake', [])
                     "Tam. da janela: WIN=32768bytes<br/>"+
                     "Flag SYN: SYN=0<br/>"+
                     "Flag ACK: ACK=1<br/>"
-            }).then(function(result) {
+            }).then(function() {
                 tl.resume();
             });
         });
@@ -122,11 +131,13 @@ angular.module('netanimations.threewayhandshake', [])
         tl.to(segment, 3, sendBottom);
 
         tl.call(function() {
-            $ionicPopup.alert({
-                title: 'Fim',
-                template: "{{'TWHS_END' | translate}}"
-            }).then(function() {
-                $scope.end = true;
+            $translate(['END', 'ANIMATION_END']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.END,
+                    template: translations.ANIMATION_END
+                }).then(function(result) {
+                    $scope.end = true;
+                });
             });
         });
 
