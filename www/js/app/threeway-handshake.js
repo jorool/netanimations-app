@@ -131,10 +131,10 @@ angular.module('netanimations.threewayhandshake', [])
         tl.to(segment, 3, sendBottom);
 
         tl.call(function() {
-            $translate(['END', 'ANIMATION_END']).then(function(translations) {
+            $translate(['END', 'TWHS_END']).then(function(translations) {
                 $ionicPopup.alert({
                     title: translations.END,
-                    template: translations.ANIMATION_END
+                    template: translations.TWHS_END
                 }).then(function(result) {
                     $scope.end = true;
                 });
