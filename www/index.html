@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>NetAnimations App</title>
+    <title>NetAnimations</title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -15,19 +15,23 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
+    <!-- app's js -->
     <script src="js/app/app.js"></script>
     <script src="js/app/module.js"></script>
-    <script src="js/vendor/angular-translate.js"></script>
-    <script src="js/vendor/TweenMax.js"></script>
-    <script src="js/vendor/TimelineMax.js"></script>
+    <script src="js/vendor/angular-translate/2.4.2/angular-translate.min.js"></script>
+    <script src="js/vendor/angular-translate/2.4.2/angular-translate-storage-cookie.min.js"></script>
+    <script src="js/vendor/greensock-js/1.13.1/TweenMax.min.js"></script>
+    <script src="js/vendor/greensock-js/1.13.1/TimelineMax.min.js"></script>
 
-    <!-- Controladores -->
+    <!-- controllers -->
     <script src="js/app/controllers.js"></script>
+    <script src="js/app/threeway-handshake.js"></script>
+    <script src="js/app/sequence-number.js"></script>
+    <script src="js/app/pure-aloha.js"></script>
 
 </head>
 
 <body ng-app="netanimations">
-<ion-nav-view animation="slide-left-right"></ion-nav-view>
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
 </body>
 </html>
