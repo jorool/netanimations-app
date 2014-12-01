@@ -104,6 +104,8 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             STEP_4: 'Fourth step',
             STEP_5: 'Fifth step',
 
+            SEGMENT_1: 'First segment',
+
             THREEWAY_HANDSHAKE: 'Three-way Handshake',
             THREEWAY_HANDSHAKE_DESC: 'Process of TCP connection establishment',
             THREEWAY_HANDSHAKE_PRESENTATION: 'The Three-Way Handshake is a process of agreement between the two parties wishing to establish a communication that consists of three steps.',
@@ -151,12 +153,14 @@ angular.module('netanimations', ['ionic', 'netanimations.controllers', 'pascalpr
             STEP_4: 'Quarto passo',
             STEP_5: 'Quinto passo',
 
+            SEGMENT_1: 'Primeiro segmento',
+
             THREEWAY_HANDSHAKE: 'Three-way Handshake',
             THREEWAY_HANDSHAKE_DESC: 'Processo de estabelecimento de conexão TCP',
             THREEWAY_HANDSHAKE_PRESENTATION: 'O Three-way Handshake é um processo de acordo entre as duas partes que desejam estabelecer uma comunicação que consiste em três etapas.',
-            TWHS_STEP_1: 'O cliente envia um pacote (requisição) com as flags SYN = 1 e ACK = 0',
-            TWHS_STEP_2: 'O servidor responde com um pacote contendo as flags SYN = 1 e ACK = 1, representando que a conexão foi aceita e estabelecida',
-            TWHS_STEP_3: 'O cliente responde com um pacote com a flag ACK = 1',
+            TWHS_STEP_1: 'O cliente envia um segmento (requisição) com as flags SYN = 1 e ACK = 0',
+            TWHS_STEP_2: 'O servidor responde com um segmento contendo as flags SYN = 1 e ACK = 1, representando que a conexão foi aceita e estabelecida',
+            TWHS_STEP_3: 'O cliente responde com um segmento com a flag ACK = 1',
             TWHS_END: 'Após o término dos 3 passos, o Three-way Handshake está completo e as duas partes podem trocar dados entre si.',
 
             SEQUENCE_NUMBER_TITLE: 'Número de sequência e de reconhecimento',

@@ -42,16 +42,19 @@ angular.module('netanimations.threewayhandshake', [])
 
         tl.call(function() {
             tl.pause();
-            $ionicPopup.alert({
-                title: "Primeiro pacote",
-                template: "Porta origem: TCP 1026<br/>"+
+
+            $translate(['SEGMENT_1']).then(function(translations) {
+                $ionicPopup.alert({
+                    title: translations.SEGMENT_1,
+                    template: "Porta origem: TCP 1026<br/>"+
                     "Porta destino: TCP 524<br/>"+
                     "Nº de sequência: SEQ=0<br/>"+
                     "Tam. da janela: WIN=8192bytes<br/>"+
                     "Flag SYN: SYN=1<br/>"+
                     "Flag ACK: ACK=0<br/>"
-            }).then(function() {
-                tl.resume();
+                }).then(function() {
+                    tl.resume();
+                });
             });
         });
 
@@ -79,7 +82,7 @@ angular.module('netanimations.threewayhandshake', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "Segundo pacote",
+                title: "Segundo segmento",
                 template: "Porta origem: TCP 524<br/>"+
                     "Porta destino: TCP 1026<br/>"+
                     "Nº de sequência: SEQ=0<br/>"+
@@ -115,7 +118,7 @@ angular.module('netanimations.threewayhandshake', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: "Terceiro pacote",
+                title: "Terceiro segmento",
                 template: "Porta origem: TCP 524<br/>"+
                     "Porta destino: TCP 1026<br/>"+
                     "Nº de sequência: SEQ=0<br/>"+

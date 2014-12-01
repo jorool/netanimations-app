@@ -96,7 +96,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: 'Primeiro pacote',
+                title: 'Primeiro segmento',
                 template: "Número de sequência: 0 <br/>"
             }).then(function() {
                 tl.resume();
@@ -128,7 +128,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: $scope.title,
+                title: "Segmento",
                template: "Número de sequência: 0<br>"+
                    "Número de reconhecimento: 1000"
             }).then(function () {
@@ -143,7 +143,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: $scope.title,
+                title: "Informação",
                 //TODO internacionalizar essa mensagem
                 template: 'Ao receber o segmento com o número de reconhecimento 1000, o host A encaminha ' +
                 'os bytes de 1000 a 1999 ao host B. O host A também solicita o próximo segmento ao host B, ' +
@@ -160,7 +160,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: $scope.title,
+                title: "Segmento",
                 template: "Número de sequência: 1000<br>"+
                     "Número de reconhecimento: 536"
             }).then(function () {
@@ -175,7 +175,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: $scope.title,
+                title: "Informação",
                 //TODO internacionalizar essa mensagem
                 template: 'Vamos considerar que logo em seguida o host A encaminha o próximo segmento ao host B, ' +
                 'com número de sequência 2000. Como o host A ainda não recebeu o segmento de sequência 536, ' +
@@ -194,7 +194,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: $scope.title,
+                title: "Segmento",
                 template: "Número de sequência: 2000<br>"+
                     "Número de reconhecimento: 536"
             }).then(function () {
@@ -209,7 +209,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: $scope.title,
+                title: "Informação",
                 //TODO internacionalizar essa mensagem
                 template: 'O host B por sua vez envia o segmento com número de sequência 536 ao host A.'+
                     'Como o host B recebeu os segmentos de sequência 1000 e 2000 sucessivamente, ele envia no ' +
@@ -225,7 +225,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: $scope.title,
+                title: "Informação",
                 //TODO internacionalizar essa mensagem
                 template: 'Dizemos que o TCP provê reconhecimentos cumulativos, pois ele reconhece todos os ' +
                 'bytes até o primeiro byte que está faltando na cadeia.'
@@ -243,7 +243,7 @@ angular.module('netanimations.sequencenumber', [])
         tl.call(function() {
             tl.pause();
             $ionicPopup.alert({
-                title: $scope.title,
+                title: "Segmento",
                 template: "Número de sequência: 536<br>"+
                     "Número de reconhecimento: 3000"
             }).then(function () {
