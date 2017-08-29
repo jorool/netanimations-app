@@ -1,269 +1,270 @@
 angular.module('netanimations.sequencenumber', [])
+.controller('SequenceNumberCtrl', function($state, $scope, $ionicPopup, $translate, $compile) {
+  $scope.end = false;
 
-    .controller('SequenceNumberCtrl', function($scope, $ionicPopup, $translate) {
-        TweenLite.defaultEase = Power1.easeInOut;
+  var tl = new TimelineLite();
 
-        $scope.end = false;
+  $scope.restart = function () {
+    tl.seek(0);
+    $scope.end = false;
+  };
 
-        var segment1 = ".segment-01";
-        var segment2 = ".segment-02";
-        var zoomIn = {width: 300, left:"50%", top:"50%"};
-        var zoomOutAndRotate90 = {width: 40, rotation: 90};
-        var rotate0 = {rotation: 0};
-        var hide = {className:"ng-hide"};
-        var show = {className:"ng-show"};
-        var sendBottom = {y: 420};
-        var sendTop = {y: 10};
+  $scope.tl = tl;
 
-        var tl = new TimelineMax();
-        tl.call(function() {
-            tl.pause();
+  $scope.accessibilityGo = function(op,state){
+    switch (op) {
+      case 'exit':
+        $scope.tl.seek(0);
+        $state.go(state);
+        break;
+      case 'next':
+        cleanContentInfo();
+        $scope.tl.resume();
+        break;
+      case 'back':
+        cleanContentInfo();
+        $scope.tl.seek(state); //checkpoint de retrocesso
+        $scope.tl.play();
+        break;
+      case 'restart':
+        cleanContentInfo();
+        $scope.tl.seek(state);
+        $scope.tl.play();
+        break;
+    }
+  };
 
-            $translate(['INFO', 'SEQUENCE_NUMBER_PRESENTATION_1']).then(function(translations) {
-                $ionicPopup.alert({
-                    title: translations.INFO,
-                    template: translations.SEQUENCE_NUMBER_PRESENTATION_1
-                }).then(function() {
-                    tl.resume();
-                });
-            });
-        });
+  TweenLite.defaultEase = Power1.easeInOut;
 
-        tl.add(segment1, 0, {width: 50}); //dummy step - do not remove
+  var segment1 = ".segment-01";
+  var segment2 = ".segment-02";
+  var patternHeight = 595;
+  var patternWidth = 422;
+  var realHeight = window.innerHeight - 44; // 44 é a altura do header, que deve ser desconsiderado
+  var aspectRatioHeight = realHeight/patternHeight;
+  var segmentInitialSize = 40 * aspectRatioHeight;
+  var zoomInScale = 200 * aspectRatioHeight;
+  var zoomPipeScale = 60 * aspectRatioHeight;
+  var zoomIn = {width: zoomInScale};
+  var bottom = 400 * aspectRatioHeight;/*window.innerHeight - (window.innerHeight * 0.35);*/
+  var top = 40 * aspectRatioHeight;/*window.innerHeight - (window.innerHeight * 0.95);*/
+  var zoomOutAndRotate90 = {width: zoomPipeScale, rotation: 90};
+  var rotate0 = {rotation: 0};
+  var hide = {className:"ng-hide"};
+  var show = {className:"ng-show"};
+  var sendBottom = {y: bottom};
+  var sendTop = {y: top};
+  var audio = document.createElement('audio');
+  var audiovisualPreference = $scope.audiovisual;
 
-        tl.call(function() {
-            tl.pause();
+  tl.set(segment1, {y:top, width:segmentInitialSize})
+    .set(segment2,{y:top, width:segmentInitialSize});
 
-            $translate(['INFO', 'SEQUENCE_NUMBER_PRESENTATION_2']).then(function(translations) {
-                $ionicPopup.alert({
-                    title: translations.INFO,
-                    template: translations.SEQUENCE_NUMBER_PRESENTATION_2
-                }).then(function() {
-                    tl.resume();
-                });
-            });
-        });
+  tl.add("step1");
+  tl.call( function(){
+    initialPopup(tl,$translate, $ionicPopup, $state, $scope, $compile, 'INFO', 'SEQUENCE_NUMBER_PRESENTATION_1');
+  });
+  tl.to('.animationFrame', 0.5, {x: 0}); //dummy step - do not remove
 
-        tl.to(segment1, 0.1, {width: 50}); //dummy step - do not remove
+  tl.add("step2");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'INFO', 'SEQUENCE_NUMBER_PRESENTATION_2',"step1");
+  });
+  tl.to('.animationFrame', 0.5, {x: 0}); //dummy step - do not remove
 
-        tl.call(function() {
-            tl.pause();
+  tl.add("step3");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'INFO', 'SEQUENCE_NUMBER_PRESENTATION_3',"step2");
+  });
 
-            $translate(['INFO', 'SEQUENCE_NUMBER_PRESENTATION_3']).then(function(translations) {
-                $ionicPopup.alert({
-                    title: translations.INFO,
-                    template: translations.SEQUENCE_NUMBER_PRESENTATION_3
-                }).then(function() {
-                    tl.resume();
-                });
-            });
-        });
+  tl.to('.animationFrame', 0.5, {x: 0}); //dummy step - do not remove
 
-        tl.to(segment1, 0.1, {width: 50}); //dummy step - do not remove
+  tl.add("step4");
+  tl.call(function() {
+    commonPopup(tl,  $scope, $compile, $translate, $ionicPopup, 'INFO', 'SEQUENCE_NUMBER_PRESENTATION_4',"step3");
+  });
+  tl.to('.animationFrame', 0.5, {x: 0}); //dummy step - do not remove
 
-        tl.call(function() {
-            tl.pause();
+  tl.add("step5");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'INFO', 'SEQUENCE_NUMBER_PRESENTATION_5',"step4");
+  });
 
-            $translate(['INFO', 'SEQUENCE_NUMBER_PRESENTATION_4']).then(function(translations) {
-                $ionicPopup.alert({
-                    title: translations.INFO,
-                    template: translations.SEQUENCE_NUMBER_PRESENTATION_4
-                }).then(function() {
-                    tl.resume();
-                });
-            });
-        });
+  if(audiovisualPreference){
+    tl.to(audio,1,{onComplete:function(){playAudio(audio,'audio/sequence/5-6.ogg')}});
+    tl.to(segment1, 2, sendTop);
+    tl.to(segment1, 3, show);
+    tl.to(segment1, 2, zoomIn);
+  }else{
+    tl.to(segment1, 1, sendTop);
+    tl.to(segment1, 1, show);
+    tl.to(segment1, 1, zoomIn);
+  }
 
-        tl.to(segment1, 0.1, {width: 50}); //dummy step - do not remove
+  tl.add("step6");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'SEGMENT_1', 'SEQUENCE_NUMBER_PRESENTATION_6',"step5");
+  });
 
-        tl.call(function() {
-            tl.pause();
 
-            $translate(['INFO', 'SEQUENCE_NUMBER_PRESENTATION_5']).then(function(translations) {
-                $ionicPopup.alert({
-                    title: translations.INFO,
-                    template: translations.SEQUENCE_NUMBER_PRESENTATION_5
-                }).then(function() {
-                    tl.resume();
-                });
-            });
-        });
+  if(audiovisualPreference){
+    tl.to(audio,1,{onComplete:function(){playAudio(audio,'audio/sequence/6-7_10-11_12-13_15-16.ogg')}});
+    tl.to(segment1, 1, zoomOutAndRotate90);
+    tl.to(segment1, 3, sendBottom);
+    tl.to(segment1, 0, hide);
+  }else{
+    tl.to(segment1, 1, zoomOutAndRotate90);
+    tl.to(segment1, 3, sendBottom);
+    tl.to(segment1, 0, hide);
+  }
 
-        tl.to(segment1, 1, sendTop);
-        tl.to(segment1, 1, show);
-        tl.to(segment1, 1, zoomIn);
 
-        tl.call(function() {
-            tl.pause();
-            $ionicPopup.alert({
-                title: 'Primeiro segmento',
-                template: "Número de sequência: 0 <br/>"
-            }).then(function() {
-                tl.resume();
-            });
-        });
+  tl.add("step7");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'INFO', 'SEQUENCE_NUMBER_PRESENTATION_7',"step6");
+  });
 
-        tl.to(segment1, 1, zoomOutAndRotate90);
-        tl.to(segment1, 3, sendBottom);
-        tl.to(segment1, 0, hide);
+  if(audiovisualPreference){
+    tl.to(audio,1,{onComplete:function(){playAudio(audio,'audio/sequence/7-8.ogg')}});
+    //initial position of segment 2
+    tl.to(segment2, 0, sendBottom);
+    tl.to(segment2, 4, show);
+    tl.to(segment2, 4, zoomIn);
+  }else{
+    //initial position of segment 2
+    tl.to(segment2, 0, sendBottom);
+    tl.to(segment2, 1, show);
+    tl.to(segment2, 1, zoomIn);
+  }
 
-        tl.call(function() {
-           tl.pause();
+  tl.add("step8");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'SEGMENT', 'SEQUENCE_NUMBER_PRESENTATION_8',"step7");
+  });
 
-            $translate(['INFO', 'SEQUENCE_NUMBER_PRESENTATION_6']).then(function(translations) {
-                $ionicPopup.alert({
-                    title: translations.INFO,
-                    template: translations.SEQUENCE_NUMBER_PRESENTATION_6
-                }).then(function() {
-                    tl.resume();
-                });
-            });
-        });
+  if(audiovisualPreference){
+    tl.to(audio,1,{onComplete:function(){playAudio(audio,'audio/sequence/8-9.ogg')}});
+    tl.to(segment2, 1, zoomOutAndRotate90);
+    tl.to(segment2, 3, sendTop);
+    tl.to(segment2, 0, hide);
+  }else{
+    tl.to(segment2, 1, zoomOutAndRotate90);
+    tl.to(segment2, 3, sendTop);
+    tl.to(segment2, 0, hide);
+  }
 
-        //initial position of segment 2
-        tl.to(segment2, 0, sendBottom);
-        tl.to(segment2, 1, show);
-        tl.to(segment2, 1, zoomIn);
 
-        tl.call(function() {
-            tl.pause();
-            $ionicPopup.alert({
-                title: "Segmento",
-               template: "Número de sequência: 0<br>"+
-                   "Número de reconhecimento: 1000"
-            }).then(function () {
-                tl.resume();
-            });
-        });
+  tl.add("step9");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'INFO', 'SEQUENCE_NUMBER_PRESENTATION_9',"step8");
+  });
+  if(audiovisualPreference){
+    tl.to(audio,1,{onComplete:function(){playAudio(audio,'audio/sequence/9-10.ogg')}});
+    tl.to(segment2, 0, rotate0);
+    tl.to(segment2, 0, show);
+    tl.to(segment2, 8, zoomIn);
+  }else{
+    tl.to(segment2, 0, rotate0);
+    tl.to(segment2, 0, show);
+    tl.to(segment2, 1, zoomIn);
+  }
 
-        tl.to(segment2, 1, zoomOutAndRotate90);
-        tl.to(segment2, 3, sendTop);
-        tl.to(segment2, 0, hide);
+  tl.add("step10");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'SEGMENT', 'SEQUENCE_NUMBER_PRESENTATION_10',"step9");
+  });
+  if(audiovisualPreference){
+    tl.to(audio,1,{onComplete:function(){playAudio(audio,'audio/sequence/6-7_10-11_12-13_15-16.ogg')}});
+    tl.to(segment2, 1, zoomOutAndRotate90);
+    tl.to(segment2, 3, sendBottom);
+    tl.to(segment2, 0, hide);
+  }else{
+    tl.to(segment2, 1, zoomOutAndRotate90);
+    tl.to(segment2, 3, sendBottom);
+    tl.to(segment2, 0, hide);
+  }
 
-        tl.call(function() {
-            tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                //TODO internacionalizar essa mensagem
-                template: 'Ao receber o segmento com o número de reconhecimento 1000, o host A encaminha ' +
-                'os bytes de 1000 a 1999 ao host B. O host A também solicita o próximo segmento ao host B, ' +
-                'informando o número 536 no campo número de reconhecimento.'
-            }).then(function () {
-                tl.resume();
-            });
-        });
 
-        tl.to(segment2, 0, rotate0);
-        tl.to(segment2, 0, show);
-        tl.to(segment2, 1, zoomIn);
+  tl.add("step11");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'INFO', 'SEQUENCE_NUMBER_PRESENTATION_11',"step10");
+  });
+  if(audiovisualPreference){
+    tl.to(audio,1,{onComplete:function(){playAudio(audio,'audio/sequence/11-12_14-15.ogg')}});
+    //origem mostra outro pacote
+    tl.to(segment2, 0, rotate0);
+    tl.to(segment2, 0, sendTop);
+    tl.to(segment2, 0, show);
+    tl.to(segment2, 8, zoomIn);
+  }else{
+    //origem mostra outro pacote
+    tl.to(segment2, 0, rotate0);
+    tl.to(segment2, 0, sendTop);
+    tl.to(segment2, 0, show);
+    tl.to(segment2, 1, zoomIn);
+  }
 
-        tl.call(function() {
-            tl.pause();
-            $ionicPopup.alert({
-                title: "Segmento",
-                template: "Número de sequência: 1000<br>"+
-                    "Número de reconhecimento: 536"
-            }).then(function () {
-                tl.resume();
-            });
-        });
+  tl.add("step12");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'SEGMENT', 'SEQUENCE_NUMBER_PRESENTATION_12',"step11");
+  });
+  if(audiovisualPreference){
+    tl.to(audio,1,{onComplete:function(){playAudio(audio,'audio/sequence/6-7_10-11_12-13_15-16.ogg')}});
+    tl.to(segment2, 1, zoomOutAndRotate90);
+    tl.to(segment2, 3, sendBottom);
+    tl.to(segment2, 0, hide);
+  }else{
+    tl.to(segment2, 1, zoomOutAndRotate90);
+    tl.to(segment2, 3, sendBottom);
+    tl.to(segment2, 0, hide);
+  }
 
-        tl.to(segment2, 1, zoomOutAndRotate90);
-        tl.to(segment2, 3, sendBottom);
-        tl.to(segment2, 0, hide);
+  tl.add("step13");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'INFO', 'SEQUENCE_NUMBER_PRESENTATION_13',"step12");
+  });
+  //dummy step - do not remove
+  tl.to(segment1, 0.5, {width: 50});
 
-        tl.call(function() {
-            tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                //TODO internacionalizar essa mensagem
-                template: 'Vamos considerar que logo em seguida o host A encaminha o próximo segmento ao host B, ' +
-                'com número de sequência 2000. Como o host A ainda não recebeu o segmento de sequência 536, ' +
-                'ele informa novamente este valor no campo número de reconhecimento.'
-            }).then(function () {
-                tl.resume();
-            });
-        });
+  tl.add("step14");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'INFO', 'SEQUENCE_NUMBER_PRESENTATION_14',"step13");
+  });
+  if(audiovisualPreference){
+    tl.to(audio,1,{onComplete:function(){playAudio(audio,'audio/sequence/11-12_14-15.ogg')}});
+    //origin shows another segment
+    tl.to(segment2, 0, sendTop);
+    tl.to(segment2, 0, rotate0);
+    tl.to(segment2, 0, show);
+    tl.to(segment2, 1, zoomIn);
+  }else{
+    //origin shows another segment
+    tl.to(segment2, 0, sendTop);
+    tl.to(segment2, 0, rotate0);
+    tl.to(segment2, 0, show);
+    tl.to(segment2, 8, zoomIn);
+  }
 
-        //origem mostra outro pacote
-        tl.to(segment2, 0, rotate0);
-        tl.to(segment2, 0, sendTop);
-        tl.to(segment2, 0, show);
-        tl.to(segment2, 1, zoomIn);
 
-        tl.call(function() {
-            tl.pause();
-            $ionicPopup.alert({
-                title: "Segmento",
-                template: "Número de sequência: 2000<br>"+
-                    "Número de reconhecimento: 536"
-            }).then(function () {
-                tl.resume();
-            });
-        });
+  tl.add("step15");
+  tl.call(function() {
+    commonPopup(tl, $scope, $compile, $translate, $ionicPopup, 'SEGMENT', 'SEQUENCE_NUMBER_PRESENTATION_15',"step14");
+  });
+  if(audiovisualPreference){
+    tl.to(audio,1,{onComplete:function(){playAudio(audio,'audio/sequence/6-7_10-11_12-13_15-16.ogg')}});
+    tl.to(segment2, 1, zoomOutAndRotate90);
+    tl.to(segment2, 3, sendBottom);
+    tl.to(segment2, 0, hide);
+  }else{
+    tl.to(segment2, 1, zoomOutAndRotate90);
+    tl.to(segment2, 3, sendBottom);
+    tl.to(segment2, 0, hide);
+  }
 
-        tl.to(segment2, 1, zoomOutAndRotate90);
-        tl.to(segment2, 3, sendBottom);
-        tl.to(segment2, 0, hide);
 
-        tl.call(function() {
-            tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                //TODO internacionalizar essa mensagem
-                template: 'O host B por sua vez envia o segmento com número de sequência 536 ao host A.'+
-                    'Como o host B recebeu os segmentos de sequência 1000 e 2000 sucessivamente, ele envia no ' +
-                'campo número de reconhecimento o valor 3000, que é o próximo segmento a ser enviado pelo host A.'
-            }).then(function () {
-                tl.resume();
-            });
-        });
-
-        //dummy step - do not remove
-        tl.to(segment1, 0.1, {width: 50});
-
-        tl.call(function() {
-            tl.pause();
-            $ionicPopup.alert({
-                title: "Informação",
-                //TODO internacionalizar essa mensagem
-                template: 'Dizemos que o TCP provê reconhecimentos cumulativos, pois ele reconhece todos os ' +
-                'bytes até o primeiro byte que está faltando na cadeia.'
-            }).then(function () {
-                tl.resume();
-            });
-        });
-
-        //origin shows another segment
-        tl.to(segment2, 0, sendTop);
-        tl.to(segment2, 0, rotate0);
-        tl.to(segment2, 0, show);
-        tl.to(segment2, 1, zoomIn);
-
-        tl.call(function() {
-            tl.pause();
-            $ionicPopup.alert({
-                title: "Segmento",
-                template: "Número de sequência: 536<br>"+
-                    "Número de reconhecimento: 3000"
-            }).then(function () {
-                tl.resume();
-            });
-        });
-
-        tl.to(segment2, 1, zoomOutAndRotate90);
-        tl.to(segment2, 3, sendBottom);
-        tl.to(segment2, 0, hide);
-
-        //end
-        tl.call(function() {
-            $translate(['END', 'ANIMATION_END']).then(function(translations) {
-                $ionicPopup.alert({
-                    title: translations.END,
-                    template: translations.ANIMATION_END
-                });
-            });
-        });
-
-        $scope.end = true;
-    });
+  //end
+  tl.call(function() {
+    endPopup(tl,$translate, $ionicPopup, $state, $scope, $compile, 'END', 'ANIMATION_END',"step14","step1");
+  });
+  $scope.end = true;
+});

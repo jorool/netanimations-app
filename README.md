@@ -1,10 +1,10 @@
 # Welcome to the NetAnimations project!
 
-NetAnimations is a [Learning Object Repository](http://www.din.uem.br/netanimations) of Computer Networking discipline. It is a mobile app built with [Ionic Framework](http://ionicframework.com/).
+NetAnimations is an accessible [Learning Object Repository](http://www.din.uem.br/netanimations) of Computer Networking discipline. It is an accessible mobile app built with [Ionic Framework](http://ionicframework.com/).
 
 Here you will find some animations that simulate complex and difficult process about the discipline of Computer Network.
 
-These animations were developed in order to facilitate student's understanding and stimulate student interest in the discipline.
+These animations were developed in order to facilitate student's understanding and stimulate student interest in the discipline, including visually impaired students.
 
 This repository was built with the purpose of providing the animations in the public domain. You can contribute with suggestions, corrections and ideas for new animations via e-mail (lafmartimiano@uem.br) or pull-requests.
 
@@ -13,6 +13,8 @@ NetAnimations is a project of Informatics Department ([DIN](http://www.din.uem.b
 ### Kept by
 
 Luciana Andréia Fondazzi Martimiano: Founder of the project.
+
+Alisson Renan Svaigen: Collaborated with the the accessibility mobile app.
 
 Jonathan Rodrigues de Oliveira: Collaborated with the mobile app.
 
